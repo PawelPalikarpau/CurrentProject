@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace MyProjectUI
 {
-    public partial class LoginForm : Form
+    public partial class RegistrationForm : Form
     {
-        public LoginForm()
+        public RegistrationForm()
         {
             InitializeComponent();
-        }
-
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -16,6 +16,9 @@ namespace MyProjectUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            MyProjectLibrary.GlobalConfig.InitializeConnections(true, true);
+
             Application.Run(new LoginForm());
         }
     }
