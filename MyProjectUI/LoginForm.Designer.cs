@@ -57,13 +57,14 @@
             // loginButton
             // 
             this.loginButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.loginButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.loginButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.loginButton.Location = new System.Drawing.Point(24, 113);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(119, 56);
             this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // passwordLabel
             // 
@@ -84,7 +85,7 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.exitButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.exitButton.Location = new System.Drawing.Point(149, 113);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(119, 56);
@@ -105,7 +106,7 @@
             // registrateButton
             // 
             this.registrateButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.registrateButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.registrateButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.registrateButton.Location = new System.Drawing.Point(87, 202);
             this.registrateButton.Name = "registrateButton";
             this.registrateButton.Size = new System.Drawing.Size(119, 56);
