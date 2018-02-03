@@ -65,6 +65,7 @@
   <ItemGroup>
     <Content Include="SQL\spAccounts_Insert.txt" />
     <Content Include="SQL\spUsers_Insert.txt" />
+    <Content Include="SQL\spUsers_GetPasswordByEmail.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

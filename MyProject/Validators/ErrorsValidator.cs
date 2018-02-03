@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MyProjectLibrary.Validators
 {
@@ -19,26 +20,28 @@ namespace MyProjectLibrary.Validators
             this.errorsDictionary.Add("IsVaildEmail", "You must fill correct E-mail." + Environment.NewLine);
             this.errorsDictionary.Add("IsPaswordConfirm", "You must fill the same confirm password." + Environment.NewLine);
             this.errorsDictionary.Add("IsShortPassword", "The password must be at least of three characters." + Environment.NewLine);
+            this.errorsDictionary.Add("IsEmailExists", "User with such E-mail already exists." + Environment.NewLine);
         }
 
-        public String GetErrors(ValidationModel validationModel)
+        public bool AreErrors(ValidationModel validationModel)
         {
             StringBuilder errors = new StringBuilder();
 
             if (validationModel.IsEmailEmpty)  errors.Append(errorsDictionary["IsEmailEmpty"]);
             if (validationModel.IsFirstPasswordEmpty)  errors.Append(errorsDictionary["IsFirstPasswordEmpty"]);
             if (validationModel.IsSecondPasswordEmpty)  errors.Append(errorsDictionary["IsSecondPasswordEmpty"]);
-
-            if (errors.ToString() != "") return errors.ToString();
-
             if (validationModel.IsInvaildEmail) errors.Append(errorsDictionary["IsVaildEmail"]);
             if (validationModel.IsShortPassword) errors.Append(errorsDictionary["IsShortPassword"]);
-
-            if (errors.ToString() != "") return errors.ToString();
-            
             if (validationModel.IsPasswordNotConfirm) errors.Append(errorsDictionary["IsPaswordConfirm"]);
+            if (validationModel.IsEmailExists) errors.Append(errorsDictionary["IsEmailExists"]);
 
-            return errors.ToString();
+            if (errors.ToString() != "")
+            {
+                MessageBox.Show(errors.ToString());
+                return true;
+            }
+
+            return false;
         }
     }
 }

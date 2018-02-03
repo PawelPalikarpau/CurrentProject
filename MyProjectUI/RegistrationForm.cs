@@ -16,6 +16,7 @@ namespace MyProjectUI
     public partial class RegistrationForm : Form
     {
         RegistrationFormValidator validator = new RegistrationFormValidator();
+        public string EmailText { get; set; }
 
         public RegistrationForm()
         {
@@ -30,11 +31,13 @@ namespace MyProjectUI
 
             UserModel userModel = validator.ValidateForm(email, firstPassword, secondPassword);
 
-            if (userModel != null)
+            if (userModel != null && !validator.IsEmailExists(email))
             {
                 AccountModel accountModel = GlobalConfig.Connection.CreateAccount(new AccountModel());
                 userModel.AccountId = accountModel.Id;
                 userModel = GlobalConfig.Connection.CreateUser(userModel);
+                this.EmailText = email;
+                this.Close();
             }
         }
 

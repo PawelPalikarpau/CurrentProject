@@ -22,5 +22,10 @@ namespace MyProjectLibrary.DataAccess
 
             return accountModel;
         }
+
+        public string GetUserPasswordByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
