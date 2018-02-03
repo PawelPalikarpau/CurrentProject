@@ -32,10 +32,10 @@
             this.enterPasswordLabel = new System.Windows.Forms.Label();
             this.confirmPasswordLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.confirmPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.enterPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.secondPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.firstPasswordTextBox = new System.Windows.Forms.TextBox();
             this.backButton = new System.Windows.Forms.Button();
+            this.registrationButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // emailLabel
@@ -75,29 +75,19 @@
             this.emailTextBox.Size = new System.Drawing.Size(205, 29);
             this.emailTextBox.TabIndex = 3;
             // 
-            // confirmPasswordTextBox
+            // secondPasswordTextBox
             // 
-            this.confirmPasswordTextBox.Location = new System.Drawing.Point(180, 121);
-            this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
-            this.confirmPasswordTextBox.Size = new System.Drawing.Size(205, 29);
-            this.confirmPasswordTextBox.TabIndex = 4;
+            this.secondPasswordTextBox.Location = new System.Drawing.Point(180, 121);
+            this.secondPasswordTextBox.Name = "secondPasswordTextBox";
+            this.secondPasswordTextBox.Size = new System.Drawing.Size(205, 29);
+            this.secondPasswordTextBox.TabIndex = 4;
             // 
-            // enterPasswordTextBox
+            // firstPasswordTextBox
             // 
-            this.enterPasswordTextBox.Location = new System.Drawing.Point(180, 80);
-            this.enterPasswordTextBox.Name = "enterPasswordTextBox";
-            this.enterPasswordTextBox.Size = new System.Drawing.Size(205, 29);
-            this.enterPasswordTextBox.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(37, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 55);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Registrate";
-            this.button1.UseVisualStyleBackColor = false;
+            this.firstPasswordTextBox.Location = new System.Drawing.Point(180, 80);
+            this.firstPasswordTextBox.Name = "firstPasswordTextBox";
+            this.firstPasswordTextBox.Size = new System.Drawing.Size(205, 29);
+            this.firstPasswordTextBox.TabIndex = 5;
             // 
             // backButton
             // 
@@ -109,15 +99,26 @@
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
             // 
+            // registrationButton
+            // 
+            this.registrationButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.registrationButton.Location = new System.Drawing.Point(37, 169);
+            this.registrationButton.Name = "registrationButton";
+            this.registrationButton.Size = new System.Drawing.Size(167, 55);
+            this.registrationButton.TabIndex = 8;
+            this.registrationButton.Text = "Registrate";
+            this.registrationButton.UseVisualStyleBackColor = false;
+            this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 250);
+            this.Controls.Add(this.registrationButton);
             this.Controls.Add(this.backButton);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.enterPasswordTextBox);
-            this.Controls.Add(this.confirmPasswordTextBox);
+            this.Controls.Add(this.firstPasswordTextBox);
+            this.Controls.Add(this.secondPasswordTextBox);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.confirmPasswordLabel);
             this.Controls.Add(this.enterPasswordLabel);
@@ -137,9 +138,9 @@
         private System.Windows.Forms.Label enterPasswordLabel;
         private System.Windows.Forms.Label confirmPasswordLabel;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox confirmPasswordTextBox;
-        private System.Windows.Forms.TextBox enterPasswordTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox secondPasswordTextBox;
+        private System.Windows.Forms.TextBox firstPasswordTextBox;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button registrationButton;
     }
 }

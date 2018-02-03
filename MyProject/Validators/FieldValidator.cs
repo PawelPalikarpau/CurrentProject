@@ -11,19 +11,17 @@ namespace MyProjectLibrary.Validators
     {
         public Boolean IsFieldEmpty(String str)
         {
-            if (str.Length < 1) return true;
-            else return false;
+            return (str.Length < 1);
         }
 
-        public Boolean IsFieldeShort(String str)
+        public Boolean IsFieldShort(String str)
         {
-            if (str.Length < 3) return true;
-            else return false;
+            return (str.Length < 3);
         }
 
         public Boolean IsPasswrodConfirm(String pas1, String pas2)
         {
-            return (pas1 == pas2);
+            return (pas1 != pas2);
         }
 
         public Boolean IsNumeric(String str)
@@ -39,7 +37,7 @@ namespace MyProjectLibrary.Validators
         public Boolean IsValidEmail(String newEmail)
         {
             Regex regex = new Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-            return regex.Match(newEmail).Success;
+            return !regex.Match(newEmail).Success;
         }
     }
 }
