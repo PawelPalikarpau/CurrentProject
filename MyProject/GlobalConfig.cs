@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,12 @@ namespace MyProjectLibrary
             }
         }
 
-        public static string CnnString(string name)
+        public static IDbConnection GetConnection()
+        {
+            return new System.Data.SqlClient.SqlConnection(CnnString("MyProjectDatabase"));
+        }
+
+        private static string CnnString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }

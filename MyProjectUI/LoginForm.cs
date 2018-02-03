@@ -38,6 +38,9 @@ namespace MyProjectUI
 
         void registrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            RegistrationForm registrationForm = (RegistrationForm)sender;
+            emailTextBox.Text = registrationForm.EmailText;
+
             this.DialogResult = DialogResult.Cancel;
             this.Visible = true;
             this.Enabled = true;

@@ -13,7 +13,7 @@ namespace MyProjectLibrary.DataAccess
     {
         public UserModel CreateUser(UserModel userModel)
         {
-            using (IDbConnection connection = GetConnection())
+            using (IDbConnection connection = GlobalConfig.GetConnection())
             {
                 var p = new DynamicParameters();
                 p.Add("@Email", userModel.Email);
@@ -30,9 +30,22 @@ namespace MyProjectLibrary.DataAccess
             }
         }
 
+        public string GetUserPasswordByEmail(string email)
+        {
+            using (IDbConnection connection = GlobalConfig.GetConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@Email", email);
+                p.Add("@Password", "", dbType: DbType.String, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spUsers_GetPasswordByEmail", p, commandType: CommandType.StoredProcedure);
+                return p.Get<string>("@Password");
+            }
+        }
+
         public AccountModel CreateAccount(AccountModel accountModel)
         {
-            using (IDbConnection connection = GetConnection())
+            using (IDbConnection connection = GlobalConfig.GetConnection())
             {
                 var p = new DynamicParameters();
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
@@ -43,11 +56,6 @@ namespace MyProjectLibrary.DataAccess
 
                 return accountModel;
             }
-        }
-
-        private IDbConnection GetConnection()
-        {
-            return new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MyProjectDatabase"));
         }
     }
 }
