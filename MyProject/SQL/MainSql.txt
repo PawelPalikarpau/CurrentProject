@@ -1,0 +1,19 @@
+﻿create database MyProjectDatabase;
+GO
+use MyProjectDatabase;
+
+BEGIN
+	create table MyProjectDatabase.dbo.Accounts (
+		id int IDENTITY(1,1) PRIMARY KEY,
+		FirstName nvarchar(100) NOT NULL,
+		SecondName nvarchar(100) NOT NULL
+	);
+
+	create table MyProjectDatabase.dbo.Users (
+		id int IDENTITY(1,1) PRIMARY KEY,
+		Email nvarchar(100) NOT NULL,
+		Password nvarchar(100) NOT NULL,
+		Role nvarchar(100) NOT NULL,
+		AccountId int FOREIGN KEY REFERENCES MyProjectDatabase.dbo.Users(id)
+	);
+END
