@@ -18,7 +18,7 @@ namespace MyProjectLibrary.Validators
             this.errorsDictionary.Add("IsSecondPasswordEmpty", "You must fill confirm password field." + Environment.NewLine);
             this.errorsDictionary.Add("IsVaildEmail", "You must fill correct E-mail." + Environment.NewLine);
             this.errorsDictionary.Add("IsPaswordConfirm", "You must fill the same confirm password." + Environment.NewLine);
-            this.errorsDictionary.Add("IsShortPassword", "The password must bea least of three characters." + Environment.NewLine);
+            this.errorsDictionary.Add("IsShortPassword", "The password must be at least of three characters." + Environment.NewLine);
         }
 
         public String GetErrors(ValidationModel validationModel)
