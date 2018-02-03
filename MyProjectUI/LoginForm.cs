@@ -19,12 +19,28 @@ namespace MyProjectUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void registrateButton_Click(object sender, EventArgs e)
+        {
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.FormClosed += new FormClosedEventHandler(registrationForm_FormClosed);
+            this.Enabled = false;
+            this.Visible = false;
+            registrationForm.Show();
+        }
+
+        void registrationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Visible = true;
+            this.Enabled = true;
         }
     }
 }
