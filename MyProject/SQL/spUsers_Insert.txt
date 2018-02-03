@@ -1,0 +1,16 @@
+﻿CREATE PROCEDURE dbo.spUsers_Insert
+	@Email nvarchar(100),
+	@Password nvarchar(100),
+	@Role nvarchar(100),
+	@AccountId int,
+	@id int = 0 output
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	insert into dbo.Users (Email, Password, Role, AccountId)
+	values(@Email, @Password, @Role, @AccountId);
+
+	select @id = SCOPE_IDENTITY();
+END
+GO

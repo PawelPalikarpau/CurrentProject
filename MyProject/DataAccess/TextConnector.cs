@@ -9,11 +9,18 @@ namespace MyProjectLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
-        public UserModel CreatePerson(UserModel userModel)
+        public UserModel CreateUser(UserModel userModel)
         {
             userModel.Id = 1;
 
             return userModel;
+        }
+
+        public AccountModel CreateAccount(AccountModel accountModel)
+        {
+            accountModel.Id = 1;
+
+            return accountModel;
         }
     }
 }

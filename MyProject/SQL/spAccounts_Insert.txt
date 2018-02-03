@@ -1,0 +1,12 @@
+﻿CREATE PROCEDURE dbo.spAccounts_Insert
+	@id int = 0 output
+AS
+BEGIN
+	SET NOCOUNT ON;
+	
+	insert into dbo.Accounts (FirstName, SecondName)
+	values ('temp', 'temp');
+
+	select @id = SCOPE_IDENTITY();
+END
+GO

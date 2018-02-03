@@ -9,6 +9,7 @@ namespace MyProjectLibrary.DataAccess
 {
     public interface IDataConnection
     {
-        UserModel CreatePerson(UserModel userModel);
+        UserModel CreateUser(UserModel userModel);
+        AccountModel CreateAccount(AccountModel accountModel);
     }
 }
