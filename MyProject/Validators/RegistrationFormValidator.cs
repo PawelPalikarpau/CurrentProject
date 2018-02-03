@@ -13,7 +13,7 @@ namespace MyProjectLibrary.Validators
         private FieldValidator fieldValidator = new FieldValidator();
         private ErrorsValidator errorsValidator = new ErrorsValidator();
 
-        public void ValidateForm(String email, String firstPassword, String secondPassword)
+        public UserModel ValidateForm(String email, String firstPassword, String secondPassword)
         {
             ValidationModel validationModel = new ValidationModel();
             String errors = "Not Valid";
@@ -29,7 +29,7 @@ namespace MyProjectLibrary.Validators
                 if (errors != "")
                 {
                     MessageBox.Show(errors);
-                    return;
+                    return null;
                 }
 
                 validationModel.IsInvaildEmail = fieldValidator.IsValidEmail(email);
@@ -40,7 +40,7 @@ namespace MyProjectLibrary.Validators
                 if (errors != "")
                 {
                     MessageBox.Show(errors);
-                    return;
+                    return null;
                 }
 
                 validationModel.IsPasswordNotConfirm = fieldValidator.IsPasswrodConfirm(firstPassword, secondPassword);
@@ -50,9 +50,11 @@ namespace MyProjectLibrary.Validators
                 if (errors != "")
                 {
                     MessageBox.Show(errors);
-                    return;
+                    return null;
                 }
             }
+
+            return new UserModel(email, firstPassword, "User");
         }
     }
 }

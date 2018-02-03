@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyProjectLibrary;
+using MyProjectLibrary.Models;
 using MyProjectLibrary.Validators;
 
 namespace MyProjectUI
@@ -22,7 +24,18 @@ namespace MyProjectUI
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
-            validator.ValidateForm(emailTextBox.Text, firstPasswordTextBox.Text, secondPasswordTextBox.Text);
+            string email = emailTextBox.Text;
+            string firstPassword = firstPasswordTextBox.Text;
+            string secondPassword = secondPasswordTextBox.Text;
+
+            UserModel userModel = validator.ValidateForm(email, firstPassword, secondPassword);
+
+            if (userModel != null)
+            {
+                AccountModel accountModel = GlobalConfig.Connection.CreateAccount(new AccountModel());
+                userModel.AccountId = accountModel.Id;
+                userModel = GlobalConfig.Connection.CreateUser(userModel);
+            }
         }
     }
 }
