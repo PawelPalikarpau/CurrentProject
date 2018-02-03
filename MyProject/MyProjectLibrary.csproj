@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,12 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Validators\ErrorsValidator.cs" />
+    <Compile Include="Validators\FieldValidator.cs" />
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="IDataConnection.cs" />
-    <Compile Include="UserModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnector.cs" />
     <Compile Include="TextConnector.cs" />
+    <Compile Include="Validators\RegistrationFormValidator.cs" />
+    <Compile Include="Models\ValidationModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

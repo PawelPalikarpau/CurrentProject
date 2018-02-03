@@ -19,7 +19,7 @@ namespace MyProjectUI
 
             MyProjectLibrary.GlobalConfig.InitializeConnections(true, true);
 
-            Application.Run(new LoginForm());
+            Application.Run(new RegistrationForm());
         }
     }
 }
