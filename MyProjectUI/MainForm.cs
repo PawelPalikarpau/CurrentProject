@@ -14,25 +14,22 @@ namespace MyProjectUI
 {
     public partial class MainForm : Form
     {
-        public UserModel UserModel { get; set; }
-        public AccountModel AccountModel { get; set; }
+        public UserModel UserModel { get; private set; }
+        public AccountModel AccountModel { get; private set; }
 
         public MainForm()
         {
             InitializeComponent();
             this.Show();
-            ShowLoginForm();
+            if (UserModel == null) ShowLoginForm();
         }
 
         private void ShowLoginForm()
         {
-            if (UserModel == null)
-            {
-                LoginForm loginForm = new LoginForm();
-                loginForm.FormClosed += new FormClosedEventHandler(loginForm_FormClosed);
-                this.Enabled = false;
-                loginForm.Show();
-            }
+            LoginForm loginForm = new LoginForm();
+            loginForm.FormClosed += new FormClosedEventHandler(loginForm_FormClosed);
+            this.Enabled = false;
+            loginForm.Show();
         }
 
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -41,22 +38,28 @@ namespace MyProjectUI
             this.UserModel = loginForm.UserModel;
             this.AccountModel = loginForm.AccountModel;
 
-            if (AccountModel.FirstName == null)
-                ShowAccountForm(ChangeAccount.Yes);
-            else            
+            if (UserModel == null)
+                Application.Exit();
+            else if (AccountModel.FirstName == null)
+                ShowAccountForm(ChangeAccount.Yes, this.AccountModel);
+            else
                 this.Enabled = true;
         }
 
-        private void ShowAccountForm(ChangeAccount changeable)
+        private void ShowAccountForm(ChangeAccount changeable, AccountModel accountModel)
         {
-            AccountForm accountForm = new AccountForm(changeable);
+            AccountForm accountForm = new AccountForm(changeable, accountModel);
             accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
             accountForm.Show();
         }
 
         private void accountForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Enabled = true;
+            AccountForm accountForm = (AccountForm)sender;
+            if (accountForm.DialogResult != DialogResult.OK)
+                ShowLoginForm();
+            else
+                this.Enabled = true;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MyProjectUI
     {
         RegistrationFormValidator validator = new RegistrationFormValidator();
         public string EmailText { get; set; }
+        public string PasswordText { get; set; }
 
         public RegistrationForm()
         {
@@ -42,6 +43,8 @@ namespace MyProjectUI
 
         private void backButton_Click(object sender, EventArgs e)
         {
+            this.EmailText = null;
+            this.PasswordText = null;
             this.Close();
         }
     }
