@@ -33,9 +33,8 @@ namespace MyProjectUI
 
             if (userModel != null && !validator.IsEmailExists(email))
             {
-                AccountModel accountModel = GlobalConfig.Connection.CreateAccount(new AccountModel());
-                userModel.AccountId = accountModel.Id;
                 userModel = GlobalConfig.Connection.CreateUser(userModel);
+                GlobalConfig.Connection.CreateAccount(userModel);
                 this.EmailText = email;
                 this.Close();
             }

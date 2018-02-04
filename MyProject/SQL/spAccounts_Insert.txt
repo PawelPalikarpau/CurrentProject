@@ -1,12 +1,11 @@
 ﻿CREATE PROCEDURE dbo.spAccounts_Insert
-	@id int = 0 output
+	@UserId int,
 AS
 BEGIN
 	SET NOCOUNT ON;
 	
-	insert into dbo.Accounts (FirstName, SecondName)
-	values ('temp', 'temp');
+	insert into dbo.Accounts (UserId)
+	values (@UserId);
 
-	select @id = SCOPE_IDENTITY();
 END
 GO

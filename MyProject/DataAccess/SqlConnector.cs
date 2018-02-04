@@ -19,7 +19,6 @@ namespace MyProjectLibrary.DataAccess
                 p.Add("@Email", userModel.Email);
                 p.Add("@Password", userModel.Password);
                 p.Add("@Role", "User");
-                p.Add("@AccountId", userModel.AccountId);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spUsers_Insert", p, commandType: CommandType.StoredProcedure);
@@ -43,18 +42,13 @@ namespace MyProjectLibrary.DataAccess
             }
         }
 
-        public AccountModel CreateAccount(AccountModel accountModel)
+        public void CreateAccount(UserModel userModel)
         {
             using (IDbConnection connection = GlobalConfig.GetConnection())
             {
                 var p = new DynamicParameters();
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-
+                p.Add("UserId", userModel.Id);
                 connection.Execute("dbo.spAccounts_Insert", p, commandType: CommandType.StoredProcedure);
-
-                accountModel.Id = p.Get<int>("@id");
-
-                return accountModel;
             }
         }
     }

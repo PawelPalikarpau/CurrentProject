@@ -12,6 +12,6 @@ namespace MyProjectLibrary.DataAccess
         UserModel CreateUser(UserModel userModel);
         string GetUserPasswordByEmail(string email);
 
-        AccountModel CreateAccount(AccountModel accountModel);
+        void CreateAccount(UserModel userModel);
     }
 }

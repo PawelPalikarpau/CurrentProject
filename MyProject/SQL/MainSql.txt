@@ -13,8 +13,8 @@ BEGIN
 	create table MyProjectDatabase.dbo.Accounts(
 		id int IDENTITY(1,1) PRIMARY KEY,
 		UserId int FOREIGN KEY REFERENCES MyProjectDatabase.dbo.Users(id),
-		FirstName nvarchar(100) NOT NULL,
-		SecondName nvarchar(100) NOT NULL
+		FirstName nvarchar(100),
+		SecondName nvarchar(100)
 	);
 
 END;

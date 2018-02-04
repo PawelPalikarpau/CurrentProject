@@ -9,18 +9,14 @@ namespace MyProjectLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
+
         public UserModel CreateUser(UserModel userModel)
         {
-            userModel.Id = 1;
-
-            return userModel;
+            throw new NotImplementedException();
         }
-
-        public AccountModel CreateAccount(AccountModel accountModel)
+        public void CreateAccount(UserModel userModel)
         {
-            accountModel.Id = 1;
-
-            return accountModel;
+            throw new NotImplementedException();
         }
 
         public string GetUserPasswordByEmail(string email)
