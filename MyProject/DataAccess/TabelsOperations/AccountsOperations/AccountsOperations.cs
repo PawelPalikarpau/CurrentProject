@@ -47,5 +47,21 @@ namespace MyProjectLibrary.DataAccess.TabelsOperations
                 return accountModel;
             }
         }
+
+        public void UpdateAccount(AccountModel accountModel)
+        {
+            using (IDbConnection connection = GlobalConfig.GetConnection())
+            {
+                var p = new DynamicParameters();
+                p.Add("@id", accountModel.Id);
+                p.Add("@UserID", accountModel.UserId);
+                p.Add("@FirstName", accountModel.FirstName);
+                p.Add("@LastName", accountModel.LastName);
+                p.Add("@Email", accountModel.Email);
+                p.Add("@PhoneNumber", accountModel.PhoneNumber);
+
+                connection.Execute("dbo.spAccounts_Update", p, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
