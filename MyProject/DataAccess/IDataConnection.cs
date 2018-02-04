@@ -1,4 +1,5 @@
-﻿using MyProjectLibrary.Models;
+﻿using MyProjectLibrary.DataAccess.TabelsOperations;
+using MyProjectLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,7 @@ namespace MyProjectLibrary.DataAccess
 {
     public interface IDataConnection
     {
-        UserModel CreateUser(UserModel userModel);
-        UserModel GetUserByEmail(string email);
-
-        void CreateAccount(UserModel userModel);
+        UsersOperations UsersOperations();
+        AccountsOperations AccountsOperations();
     }
 }

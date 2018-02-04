@@ -33,8 +33,8 @@ namespace MyProjectUI
 
             if (userModel != null)
             {
-                userModel = GlobalConfig.Connection.CreateUser(userModel);
-                GlobalConfig.Connection.CreateAccount(userModel);
+                userModel = GlobalConfig.Connection.UsersOperations().CreateUser(userModel);
+                GlobalConfig.Connection.AccountsOperations().CreateAccount(userModel);
                 this.EmailText = email;
                 this.Close();
             }
