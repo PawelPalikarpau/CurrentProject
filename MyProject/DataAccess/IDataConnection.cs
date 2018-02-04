@@ -10,7 +10,7 @@ namespace MyProjectLibrary.DataAccess
     public interface IDataConnection
     {
         UserModel CreateUser(UserModel userModel);
-        string GetUserPasswordByEmail(string email);
+        UserModel GetUserByEmail(string email);
 
         void CreateAccount(UserModel userModel);
     }

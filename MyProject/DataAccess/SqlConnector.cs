@@ -29,16 +29,25 @@ namespace MyProjectLibrary.DataAccess
             }
         }
 
-        public string GetUserPasswordByEmail(string email)
+        public UserModel GetUserByEmail(string email)
         {
             using (IDbConnection connection = GlobalConfig.GetConnection())
             {
                 var p = new DynamicParameters();
                 p.Add("@Email", email);
                 p.Add("@Password", "", dbType: DbType.String, direction: ParameterDirection.Output);
+                p.Add("@Role", "", dbType: DbType.String, direction: ParameterDirection.Output);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Execute("dbo.spUsers_GetPasswordByEmail", p, commandType: CommandType.StoredProcedure);
-                return p.Get<string>("@Password");
+                connection.Execute("dbo.spUsers_GetUserByEmail", p, commandType: CommandType.StoredProcedure);
+
+                UserModel userModel = new UserModel();
+                userModel.Id = p.Get<int>("@id");
+                userModel.Email = email;
+                userModel.Password = p.Get<string>("@Password");
+                userModel.Role = p.Get<string>("@Role");
+
+                return userModel;
             }
         }
 

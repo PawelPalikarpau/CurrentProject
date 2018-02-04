@@ -31,10 +31,11 @@ namespace MyProjectUI
 
             UserModel userModel = validator.ValidateForm(email, firstPassword, secondPassword);
 
-            if (userModel != null && !validator.IsEmailExists(email))
+            if (userModel != null)
             {
-                userModel = GlobalConfig.Connection.CreateUser(userModel);
-                GlobalConfig.Connection.CreateAccount(userModel);
+                string a = "a";
+//                userModel = GlobalConfig.Connection.CreateUser(userModel);
+//                GlobalConfig.Connection.CreateAccount(userModel);
                 this.EmailText = email;
                 this.Close();
             }

@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataAccess\SqlConnector.cs" />
     <Compile Include="DataAccess\TextConnector.cs" />
+    <Compile Include="Validators\LoginFormValidator.cs" />
     <Compile Include="Validators\RegistrationFormValidator.cs" />
     <Compile Include="Models\ValidationModel.cs" />
   </ItemGroup>
@@ -66,7 +67,7 @@
     <Content Include="SQL\MainSql.txt" />
     <Content Include="SQL\spAccounts_Insert.txt" />
     <Content Include="SQL\spUsers_Insert.txt" />
-    <Content Include="SQL\spUsers_GetPasswordByEmail.txt" />
+    <Content Include="SQL\spUsers_GetUserByEmail.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
