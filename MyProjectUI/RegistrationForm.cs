@@ -31,7 +31,7 @@ namespace MyProjectUI
 
             UserModel userModel = validator.ValidateForm(email, firstPassword, secondPassword);
 
-            if (userModel != null && !validator.IsEmailExists(email))
+            if (userModel != null)
             {
                 userModel = GlobalConfig.Connection.CreateUser(userModel);
                 GlobalConfig.Connection.CreateAccount(userModel);

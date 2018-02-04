@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyProjectLibrary.Models;
+using MyProjectLibrary.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,10 @@ namespace MyProjectUI
 {
     public partial class LoginForm : Form
     {
+        public UserModel UserModel { get; set; }
+
+        private LoginFormValidator validator = new LoginFormValidator();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -24,7 +30,16 @@ namespace MyProjectUI
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            string email = emailTextBox.Text;
+            string password = passwordTextBox.Text;
 
+            UserModel userModel = validator.ValidateForm(email, password);
+
+            if (userModel != null)
+            {
+                this.UserModel = userModel;
+                this.Close();
+            }
         }
 
         private void registrateButton_Click(object sender, EventArgs e)

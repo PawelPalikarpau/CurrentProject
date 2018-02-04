@@ -35,15 +35,17 @@ namespace MyProjectLibrary.Validators
 
             if (errorsValidator.AreErrors(validationModel)) return null;
 
+            if (IsEmailExists(email)) return null;
+
             return new UserModel(email, firstPassword, "User");
         }
 
-        public bool IsEmailExists(string email)
+        private bool IsEmailExists(string email)
         {
-            string password = GlobalConfig.Connection.GetUserPasswordByEmail(email);
+            UserModel userModel = GlobalConfig.Connection.GetUserByEmail(email);
 
             validationModel = new ValidationModel();
-            validationModel.IsEmailExists = password != null;
+            validationModel.IsEmailExists = userModel.Password != null;
 
             if (errorsValidator.AreErrors(validationModel)) return true;
 

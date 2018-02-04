@@ -18,5 +18,7 @@ namespace MyProjectLibrary.Models
         public Boolean IsPasswordNotConfirm { get; set; } = false;
 
         public Boolean IsEmailExists { get; set; } = false;
+        public Boolean IsEmailDoesNotExists { get; set; } = false;
+        public Boolean IsPasswordsMatch { get; set; } = false;
     }
 }

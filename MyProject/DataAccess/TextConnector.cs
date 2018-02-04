@@ -14,12 +14,13 @@ namespace MyProjectLibrary.DataAccess
         {
             throw new NotImplementedException();
         }
-        public void CreateAccount(UserModel userModel)
+
+        public UserModel GetUserByEmail(string email)
         {
             throw new NotImplementedException();
         }
 
-        public string GetUserPasswordByEmail(string email)
+        public void CreateAccount(UserModel userModel)
         {
             throw new NotImplementedException();
         }
