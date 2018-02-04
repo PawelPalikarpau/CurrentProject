@@ -36,6 +36,7 @@ namespace MyProjectLibrary.Validators
             accountModel.LastName = lastName;
             accountModel.Email = email;
             accountModel.PhoneNumber = Int32.Parse(phoneNumber);
+
             return accountModel;
         }
     }

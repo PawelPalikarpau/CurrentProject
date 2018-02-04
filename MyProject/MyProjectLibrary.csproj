@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="SQL\MainSql.txt" />
     <Content Include="SQL\spAccounts_Insert.txt" />
+    <Content Include="SQL\spAccounts_Update.txt" />
     <Content Include="SQL\spUsers_Insert.txt" />
     <Content Include="SQL\spUsers_GetUserByEmail.txt" />
     <Content Include="SQL\spAccounts_GetAccountByUserId.txt" />

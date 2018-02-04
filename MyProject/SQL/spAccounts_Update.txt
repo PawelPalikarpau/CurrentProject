@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE dbo.spAccounts_Update
+	@id int,
+	@UserId int,
+	@FirstName nvarchar(100),
+	@LastName nvarchar(100),
+	@Email nvarchar(100),
+	@PhoneNumber int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	update dbo.Accounts
+	set UserId = @UserId,
+		FirstName = @FirstName,
+		LastName = @LastName,
+		Email = @Email,
+		PhoneNumber = @PhoneNumber
+	where id = @id
+
+END
+GO

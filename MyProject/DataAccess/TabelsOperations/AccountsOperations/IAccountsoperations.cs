@@ -11,5 +11,6 @@ namespace MyProjectLibrary.DataAccess.TabelsOperations
     {
         void CreateAccount(UserModel userModel);
         AccountModel GetAccountByUserId(int? userId);
+        void UpdateAccount(AccountModel accountModel);
     }
 }

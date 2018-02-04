@@ -16,14 +16,14 @@ namespace MyProjectUI
     public partial class AccountForm : Form
     {
         private AccountFormValidator validator = new AccountFormValidator();
-        private ChangeAccount IsAccountChanable;
+        private ChangeAccount IsAccountChanable = ChangeAccount.No;
+        private Boolean IsValidForm = false;
 
         public AccountModel AccountModel { get; private set; }
 
-        public AccountForm(ChangeAccount changeable, AccountModel accountModel)
+        public AccountForm(AccountModel accountModel)
         {
             InitializeComponent();
-            this.IsAccountChanable = changeable;
             this.AccountModel = accountModel;
             ConfigureForm();
         }
@@ -42,9 +42,14 @@ namespace MyProjectUI
                 if (accountModel != null)
                 {
                     IsAccountChanable = ChangeAccount.No;
+                    IsValidForm = true;
+
                     accountModel.Id = this.AccountModel.Id;
                     accountModel.UserId = this.AccountModel.UserId;
                     this.AccountModel = accountModel;
+
+                    GlobalConfig.Connection.AccountsOperations().UpdateAccount(this.AccountModel);
+
                     ConfigureForm();
                 }
 
@@ -53,6 +58,7 @@ namespace MyProjectUI
             else if (IsAccountChanable == ChangeAccount.No)
             {
                 IsAccountChanable = ChangeAccount.Yes;
+                IsValidForm = false;
                 ConfigureForm();
                 return;
             }
@@ -75,6 +81,8 @@ namespace MyProjectUI
             lastNameTextBox.Text = this.AccountModel.LastName;
             emailTextBox.Text = this.AccountModel.Email;
             phoneNumberTextBox.Text = this.AccountModel.PhoneNumber.ToString();
+
+            exitButton.Enabled = IsValidForm;
 
             if (IsAccountChanable == ChangeAccount.Yes)
             {
