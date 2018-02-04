@@ -42,7 +42,7 @@ namespace MyProjectLibrary.Validators
 
         private bool IsEmailExists(string email)
         {
-            UserModel userModel = GlobalConfig.Connection.GetUserByEmail(email);
+            UserModel userModel = GlobalConfig.Connection.UsersOperations().GetUserByEmail(email);
 
             validationModel = new ValidationModel();
             validationModel.IsEmailExists = userModel.Password != null;

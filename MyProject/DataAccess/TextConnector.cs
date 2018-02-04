@@ -1,4 +1,5 @@
-﻿using MyProjectLibrary.Models;
+﻿using MyProjectLibrary.DataAccess.TabelsOperations;
+using MyProjectLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,18 +10,12 @@ namespace MyProjectLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
-
-        public UserModel CreateUser(UserModel userModel)
+        public AccountsOperations AccountsOperations()
         {
             throw new NotImplementedException();
         }
 
-        public UserModel GetUserByEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateAccount(UserModel userModel)
+        public UsersOperations UsersOperations()
         {
             throw new NotImplementedException();
         }

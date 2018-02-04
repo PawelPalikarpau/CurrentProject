@@ -45,6 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\TabelsOperations\AcccountsOperations\AccountsOperations.cs" />
+    <Compile Include="DataAccess\TabelsOperations\AcccountsOperations\IAccountsoperations.cs" />
+    <Compile Include="DataAccess\TabelsOperations\UsersOperations\IUsersOperations.cs" />
+    <Compile Include="DataAccess\TabelsOperations\UsersOperations\UsersOperations.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Validators\ErrorsValidator.cs" />
