@@ -42,14 +42,14 @@ namespace MyProjectUI
             this.AccountModel = loginForm.AccountModel;
 
             if (AccountModel.FirstName == null)
-                ShowAccountForm();
+                ShowAccountForm(ChangeAccount.Yes);
             else            
                 this.Enabled = true;
         }
 
-        private void ShowAccountForm()
+        private void ShowAccountForm(ChangeAccount changeable)
         {
-            AccountForm accountForm = new AccountForm();
+            AccountForm accountForm = new AccountForm(changeable);
             accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
             accountForm.Show();
         }
