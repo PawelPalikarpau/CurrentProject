@@ -1,0 +1,17 @@
+﻿CREATE PROCEDURE dbo.spAccounts_GetAccountByUserId
+	@id int = 0 OUTPUT,
+	@UserId int,
+	@FirstName nvarchar(100) OUTPUT,
+	@LastName nvarchar(100) OUTPUT,
+	@Email nvarchar(100) OUTPUT,
+	@PhoneNumber int OUTPUT
+AS
+BEGIN
+	SET NOCOUNT ON;
+	set @id=(select id from dbo.Accounts where UserId=@UserId)
+	set @FirstName=(select FirstName from dbo.Accounts where UserId=@UserId)
+	set @LastName=(select LastName from dbo.Accounts where UserId=@UserId)
+	set @Email=(select Email from dbo.Accounts where UserId=@UserId)
+	set @PhoneNUmber=(select PhoneNUmber from dbo.Accounts where UserId=@UserId)
+END
+GO

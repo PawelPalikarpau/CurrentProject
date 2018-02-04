@@ -1,11 +1,12 @@
 ﻿CREATE PROCEDURE dbo.spAccounts_Insert
 	@UserId int,
+	@Email nvarchar(100)
 AS
 BEGIN
 	SET NOCOUNT ON;
 	
-	insert into dbo.Accounts (UserId)
-	values (@UserId);
+	insert into dbo.Accounts (UserId, Email)
+	values (@UserId, @Email);
 
 END
 GO

@@ -8,21 +8,9 @@ namespace MyProjectLibrary.Models
 {
     public class UserModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-
-        public UserModel()
-        {
-
-        }
-
-        public UserModel(string email, string password, string role)
-        {
-            Email = email;
-            Password = password;
-            Role = role;
-        }
     }
 }

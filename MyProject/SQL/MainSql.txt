@@ -14,7 +14,9 @@ BEGIN
 		id int IDENTITY(1,1) PRIMARY KEY,
 		UserId int FOREIGN KEY REFERENCES MyProjectDatabase.dbo.Users(id),
 		FirstName nvarchar(100),
-		SecondName nvarchar(100)
+		LastName nvarchar(100),
+		Email nvarchar(100),
+		PhoneNUmber int
 	);
 
 END;

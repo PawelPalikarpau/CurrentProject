@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MyProjectLibrary.DataAccess.TabelsOperations
 {
-    public interface IAccountsoperations
+    public interface IAccountsOperations
     {
         void CreateAccount(UserModel userModel);
+        AccountModel GetAccountByUserId(int? userId);
     }
 }

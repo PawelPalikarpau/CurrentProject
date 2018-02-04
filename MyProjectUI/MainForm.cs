@@ -1,4 +1,5 @@
-﻿using MyProjectLibrary.Models;
+﻿using MyProjectLibrary;
+using MyProjectLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MyProjectUI
     public partial class MainForm : Form
     {
         public UserModel UserModel { get; set; }
+        public AccountModel AccountModel { get; set; }
 
         public MainForm()
         {
@@ -29,7 +31,6 @@ namespace MyProjectUI
                 LoginForm loginForm = new LoginForm();
                 loginForm.FormClosed += new FormClosedEventHandler(loginForm_FormClosed);
                 this.Enabled = false;
-                loginForm.Activate();
                 loginForm.Show();
             }
         }
@@ -38,6 +39,7 @@ namespace MyProjectUI
         {
             LoginForm loginForm = (LoginForm)sender;
             this.UserModel = loginForm.UserModel;
+            this.AccountModel = loginForm.AccountModel;
 
             this.DialogResult = DialogResult.Cancel;
             this.Enabled = true;
