@@ -14,7 +14,7 @@ namespace MyProjectUI
 {
     public partial class LoginForm : Form
     {
-        public UserModel userModel { get; set; }
+        public UserModel UserModel { get; set; }
 
         private LoginFormValidator validator = new LoginFormValidator();
 
@@ -34,6 +34,12 @@ namespace MyProjectUI
             string password = passwordTextBox.Text;
 
             UserModel userModel = validator.ValidateForm(email, password);
+
+            if (userModel != null)
+            {
+                this.UserModel = userModel;
+                this.Close();
+            }
         }
 
         private void registrateButton_Click(object sender, EventArgs e)

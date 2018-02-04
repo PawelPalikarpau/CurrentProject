@@ -26,21 +26,27 @@ namespace MyProjectLibrary.Validators
 
             if (errorsValidator.AreErrors(validationModel)) return null;
 
-            string passwordOutput = IsEmailExists(email);
+            UserModel userModel = IsEmailExists(email);
+            if (userModel != null)
+            {
+                validationModel.IsPasswordsMatch = fieldValidator.IsPasswrodConfirm(password, userModel.Password);
+                if (errorsValidator.AreErrors(validationModel)) return null;
+                return userModel;
+            }
 
             return null;
         }
 
-        private string IsEmailExists(string email)
+        private UserModel IsEmailExists(string email)
         {
             UserModel userModel = GlobalConfig.Connection.GetUserByEmail(email);
 
             validationModel = new ValidationModel();
-            validationModel.IsEmailExists = userModel.Password != null;
+            validationModel.IsEmailDoesNotExists = userModel.Password == null;
 
             if (errorsValidator.AreErrors(validationModel)) return null;
 
-            return userModel.Password;
+            return userModel;
         }
     }
 }

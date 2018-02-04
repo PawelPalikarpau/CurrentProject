@@ -5,7 +5,14 @@
 	@id int = 0 OUTPUT
 AS
 Begin
-	set @Password=(select Password from dbo.Users where Email=@Email)
-	set @Role=(select Role from dbo.Users where Email=@Email)
-	set @id=(select id from dbo.Users where email=@Email)
+	if exists(select Email from dbo.Users where Email=@Email)
+		begin
+			set @Password=(select Password from dbo.Users where Email=@Email)
+			set @Role=(select Role from dbo.Users where Email=@Email)
+			set @id=(select id from dbo.Users where Email=@Email);
+		end
+	else
+		begin
+			set @id = 0;
+		end
 END

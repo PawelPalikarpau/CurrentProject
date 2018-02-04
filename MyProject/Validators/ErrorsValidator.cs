@@ -21,6 +21,8 @@ namespace MyProjectLibrary.Validators
             this.errorsDictionary.Add("IsPaswordConfirm", "You must fill the same confirm password." + Environment.NewLine);
             this.errorsDictionary.Add("IsShortPassword", "The password must be at least of three characters." + Environment.NewLine);
             this.errorsDictionary.Add("IsEmailExists", "User with such E-mail already exists." + Environment.NewLine);
+            this.errorsDictionary.Add("IsEmailDoesNotExists", "User with such E-mail does not exists." + Environment.NewLine);
+            this.errorsDictionary.Add("IsPasswordsMatch", "The password is inccorect. Please try again." + Environment.NewLine);
         }
 
         public bool AreErrors(ValidationModel validationModel)
@@ -34,6 +36,8 @@ namespace MyProjectLibrary.Validators
             if (validationModel.IsShortPassword) errors.Append(errorsDictionary["IsShortPassword"]);
             if (validationModel.IsPasswordNotConfirm) errors.Append(errorsDictionary["IsPaswordConfirm"]);
             if (validationModel.IsEmailExists) errors.Append(errorsDictionary["IsEmailExists"]);
+            if (validationModel.IsEmailDoesNotExists) errors.Append(errorsDictionary["IsEmailDoesNotExists"]);
+            if (validationModel.IsPasswordsMatch) errors.Append(errorsDictionary["IsPasswordsMatch"]);
 
             if (errors.ToString() != "")
             {
