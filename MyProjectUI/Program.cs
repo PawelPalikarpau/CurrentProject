@@ -20,7 +20,7 @@ namespace MyProjectUI
 
             GlobalConfig.InitializeConnections(DatabaseType.Sql);
 
-            Application.Run(new LoginForm());
+            Application.Run(new MainForm());
         }
     }
 }

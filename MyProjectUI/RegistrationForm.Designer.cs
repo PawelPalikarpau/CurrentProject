@@ -73,21 +73,23 @@
             this.emailTextBox.Location = new System.Drawing.Point(180, 38);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(205, 29);
-            this.emailTextBox.TabIndex = 3;
+            this.emailTextBox.TabIndex = 0;
             // 
             // secondPasswordTextBox
             // 
             this.secondPasswordTextBox.Location = new System.Drawing.Point(180, 121);
             this.secondPasswordTextBox.Name = "secondPasswordTextBox";
+            this.secondPasswordTextBox.PasswordChar = '*';
             this.secondPasswordTextBox.Size = new System.Drawing.Size(205, 29);
-            this.secondPasswordTextBox.TabIndex = 4;
+            this.secondPasswordTextBox.TabIndex = 2;
             // 
             // firstPasswordTextBox
             // 
             this.firstPasswordTextBox.Location = new System.Drawing.Point(180, 80);
             this.firstPasswordTextBox.Name = "firstPasswordTextBox";
+            this.firstPasswordTextBox.PasswordChar = '*';
             this.firstPasswordTextBox.Size = new System.Drawing.Size(205, 29);
-            this.firstPasswordTextBox.TabIndex = 5;
+            this.firstPasswordTextBox.TabIndex = 1;
             // 
             // backButton
             // 
@@ -95,7 +97,7 @@
             this.backButton.Location = new System.Drawing.Point(219, 169);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(167, 55);
-            this.backButton.TabIndex = 7;
+            this.backButton.TabIndex = 4;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -106,7 +108,7 @@
             this.registrationButton.Location = new System.Drawing.Point(37, 169);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(167, 55);
-            this.registrationButton.TabIndex = 8;
+            this.registrationButton.TabIndex = 3;
             this.registrationButton.Text = "Registrate";
             this.registrationButton.UseVisualStyleBackColor = false;
             this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
@@ -127,6 +129,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "RegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             this.ResumeLayout(false);
             this.PerformLayout();
