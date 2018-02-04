@@ -51,6 +51,7 @@
     <Compile Include="DataAccess\TabelsOperations\UsersOperations\UsersOperations.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Validators\FormValidators\AccountFormValidator.cs" />
     <Compile Include="Validators\ErrorsValidator.cs" />
     <Compile Include="Validators\FieldValidator.cs" />
     <Compile Include="GlobalConfig.cs" />
@@ -59,8 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataAccess\SqlConnector.cs" />
     <Compile Include="DataAccess\TextConnector.cs" />
-    <Compile Include="Validators\LoginFormValidator.cs" />
-    <Compile Include="Validators\RegistrationFormValidator.cs" />
+    <Compile Include="Validators\FormValidators\LoginFormValidator.cs" />
+    <Compile Include="Validators\FormValidators\RegistrationFormValidator.cs" />
     <Compile Include="Models\ValidationModel.cs" />
   </ItemGroup>
   <ItemGroup>

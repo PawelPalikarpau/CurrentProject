@@ -15,8 +15,8 @@ namespace MyProjectUI
 {
     public partial class LoginForm : Form
     {
-        public UserModel UserModel { get; set; }
-        public AccountModel AccountModel { get; set; }
+        public UserModel UserModel { get; private set; }
+        public AccountModel AccountModel { get; private set; }
 
         private LoginFormValidator validator = new LoginFormValidator();
 
@@ -60,6 +60,7 @@ namespace MyProjectUI
         {
             RegistrationForm registrationForm = (RegistrationForm)sender;
             emailTextBox.Text = registrationForm.EmailText;
+            passwordTextBox.Text = registrationForm.PasswordText;
             
             this.Visible = true;
             this.Enabled = true;

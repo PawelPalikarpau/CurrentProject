@@ -20,5 +20,13 @@ namespace MyProjectLibrary.Models
         public Boolean IsEmailExists { get; set; } = false;
         public Boolean IsEmailDoesNotExists { get; set; } = false;
         public Boolean IsPasswordsMatch { get; set; } = false;
+
+        public Boolean IsFirstNameEmpty { get; set; } = false;
+        public Boolean IsLastNameEmpty { get; set; } = false;
+        public Boolean IsPhoneNumberEmpty { get; set; } = false;
+
+        public Boolean IsFirstNameShort { get; set; } = false;
+        public Boolean IsLastNameShort { get; set; } = false;
+        public Boolean IsPhoneNumberNumeric { get; set; } = false;
     }
 }
