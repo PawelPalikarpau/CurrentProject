@@ -42,7 +42,7 @@ namespace MyProjectLibrary.DataAccess.TabelsOperations
                 connection.Execute("dbo.spUsers_GetUserByEmail", p, commandType: CommandType.StoredProcedure);
 
                 UserModel userModel = new UserModel();
-                userModel.Id = p.Get<int>("@id");
+                userModel.Id = p.Get<int?>("@id");
                 userModel.Email = email;
                 userModel.Password = p.Get<string>("@Password");
                 userModel.Role = p.Get<string>("@Role");

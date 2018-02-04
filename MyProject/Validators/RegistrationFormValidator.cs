@@ -37,7 +37,11 @@ namespace MyProjectLibrary.Validators
 
             if (IsEmailExists(email)) return null;
 
-            return new UserModel(email, firstPassword, "User");
+            UserModel userModel = new UserModel();
+            userModel.Email = email;
+            userModel.Password = firstPassword;
+            userModel.Role = "User";
+            return userModel;
         }
 
         private bool IsEmailExists(string email)

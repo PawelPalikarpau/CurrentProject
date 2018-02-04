@@ -1,4 +1,5 @@
-﻿using MyProjectLibrary.Models;
+﻿using MyProjectLibrary;
+using MyProjectLibrary.Models;
 using MyProjectLibrary.Validators;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,15 @@ namespace MyProjectUI
     public partial class LoginForm : Form
     {
         public UserModel UserModel { get; set; }
+        public AccountModel AccountModel { get; set; }
 
         private LoginFormValidator validator = new LoginFormValidator();
 
         public LoginForm()
         {
             InitializeComponent();
+            emailTextBox.Text = "pawel@gmail.com";
+            passwordTextBox.Text = "qwer";
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -38,6 +42,7 @@ namespace MyProjectUI
             if (userModel != null)
             {
                 this.UserModel = userModel;
+                this.AccountModel = GlobalConfig.Connection.AccountsOperations().GetAccountByUserId(this.UserModel.Id);
                 this.Close();
             }
         }
@@ -55,8 +60,7 @@ namespace MyProjectUI
         {
             RegistrationForm registrationForm = (RegistrationForm)sender;
             emailTextBox.Text = registrationForm.EmailText;
-
-            this.DialogResult = DialogResult.Cancel;
+            
             this.Visible = true;
             this.Enabled = true;
         }

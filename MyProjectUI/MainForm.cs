@@ -1,4 +1,5 @@
-﻿using MyProjectLibrary.Models;
+﻿using MyProjectLibrary;
+using MyProjectLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MyProjectUI
     public partial class MainForm : Form
     {
         public UserModel UserModel { get; set; }
+        public AccountModel AccountModel { get; set; }
 
         public MainForm()
         {
@@ -29,17 +31,31 @@ namespace MyProjectUI
                 LoginForm loginForm = new LoginForm();
                 loginForm.FormClosed += new FormClosedEventHandler(loginForm_FormClosed);
                 this.Enabled = false;
-                loginForm.Activate();
                 loginForm.Show();
             }
         }
 
-        void loginForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm loginForm = (LoginForm)sender;
             this.UserModel = loginForm.UserModel;
+            this.AccountModel = loginForm.AccountModel;
 
-            this.DialogResult = DialogResult.Cancel;
+            if (AccountModel.FirstName == null)
+                ShowAccountForm();
+            else            
+                this.Enabled = true;
+        }
+
+        private void ShowAccountForm()
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
+            accountForm.Show();
+        }
+
+        private void accountForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Enabled = true;
         }
     }

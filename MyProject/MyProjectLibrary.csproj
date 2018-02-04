@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccess\TabelsOperations\AccountsOperations\AccountsOperations.cs" />
-    <Compile Include="DataAccess\TabelsOperations\AccountsOperations\IAccountsoperations.cs" />
+    <Compile Include="DataAccess\TabelsOperations\AccountsOperations\IAccountsOperations.cs" />
     <Compile Include="DataAccess\TabelsOperations\UsersOperations\IUsersOperations.cs" />
     <Compile Include="DataAccess\TabelsOperations\UsersOperations\UsersOperations.cs" />
     <Compile Include="Enums.cs" />
@@ -72,6 +72,7 @@
     <Content Include="SQL\spAccounts_Insert.txt" />
     <Content Include="SQL\spUsers_Insert.txt" />
     <Content Include="SQL\spUsers_GetUserByEmail.txt" />
+    <Content Include="SQL\spAccounts_GetAccountByUserId.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
