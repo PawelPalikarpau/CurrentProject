@@ -11,4 +11,10 @@ namespace MyProjectLibrary
         Sql,
         TextFile
     }
+
+    public enum ChangeAccount
+    {
+        Yes,
+        No
+    }
 }
