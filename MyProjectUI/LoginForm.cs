@@ -60,8 +60,7 @@ namespace MyProjectUI
         {
             RegistrationForm registrationForm = (RegistrationForm)sender;
             emailTextBox.Text = registrationForm.EmailText;
-
-            this.DialogResult = DialogResult.Cancel;
+            
             this.Visible = true;
             this.Enabled = true;
         }

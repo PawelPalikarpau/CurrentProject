@@ -35,13 +35,27 @@ namespace MyProjectUI
             }
         }
 
-        void loginForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm loginForm = (LoginForm)sender;
             this.UserModel = loginForm.UserModel;
             this.AccountModel = loginForm.AccountModel;
 
-            this.DialogResult = DialogResult.Cancel;
+            if (AccountModel.FirstName == null)
+                ShowAccountForm();
+            else            
+                this.Enabled = true;
+        }
+
+        private void ShowAccountForm()
+        {
+            AccountForm accountForm = new AccountForm();
+            accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
+            accountForm.Show();
+        }
+
+        private void accountForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Enabled = true;
         }
     }
