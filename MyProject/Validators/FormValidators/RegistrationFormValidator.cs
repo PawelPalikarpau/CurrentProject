@@ -12,28 +12,28 @@ namespace MyProjectLibrary.Validators
 {
     public class RegistrationFormValidator
     {
-        private FieldValidator fieldValidator = new FieldValidator();
-        private ErrorsValidator errorsValidator = new ErrorsValidator();
+        private FieldValidator FieldValidator = new FieldValidator();
+        private ErrorsValidator ErrorsValidator = new ErrorsValidator();
 
         private ValidationModel validationModel;
 
         public UserModel ValidateForm(String email, String firstPassword, String secondPassword)
         {
             validationModel = new ValidationModel();
-            validationModel.IsEmailEmpty = fieldValidator.IsFieldEmpty(email);
-            validationModel.IsFirstPasswordEmpty = fieldValidator.IsFieldEmpty(firstPassword);
-            validationModel.IsSecondPasswordEmpty = fieldValidator.IsFieldEmpty(secondPassword);
+            validationModel.IsEmailEmpty = FieldValidator.IsFieldEmpty(email);
+            validationModel.IsFirstPasswordEmpty = FieldValidator.IsFieldEmpty(firstPassword);
+            validationModel.IsSecondPasswordEmpty = FieldValidator.IsFieldEmpty(secondPassword);
 
-            if (errorsValidator.AreErrors(validationModel)) return null;
+            if (ErrorsValidator.AreErrors(validationModel)) return null;
 
-            validationModel.IsInvaildEmail = fieldValidator.IsValidEmail(email);
-            validationModel.IsShortPassword = fieldValidator.IsFieldShort(firstPassword);
+            validationModel.IsInvaildEmail = FieldValidator.IsValidEmail(email);
+            validationModel.IsShortPassword = FieldValidator.IsFieldShort(firstPassword);
 
-            if (errorsValidator.AreErrors(validationModel)) return null;
+            if (ErrorsValidator.AreErrors(validationModel)) return null;
 
-            validationModel.IsPasswordNotConfirm = fieldValidator.IsPasswrodConfirm(firstPassword, secondPassword);
+            validationModel.IsPasswordNotConfirm = FieldValidator.IsPasswrodConfirm(firstPassword, secondPassword);
 
-            if (errorsValidator.AreErrors(validationModel)) return null;
+            if (ErrorsValidator.AreErrors(validationModel)) return null;
 
             if (IsEmailExists(email)) return null;
 
@@ -51,7 +51,7 @@ namespace MyProjectLibrary.Validators
             validationModel = new ValidationModel();
             validationModel.IsEmailExists = userModel.Password != null;
 
-            if (errorsValidator.AreErrors(validationModel)) return true;
+            if (ErrorsValidator.AreErrors(validationModel)) return true;
 
             return false;
         }

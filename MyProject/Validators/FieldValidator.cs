@@ -26,7 +26,7 @@ namespace MyProjectLibrary.Validators
 
         public Boolean IsNumeric(String str)
         {
-            return Int64.TryParse(str, out long number);
+            return !Int64.TryParse(str, out long number);
         }
 
         public Boolean IsDecimal(String str)

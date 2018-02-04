@@ -1,5 +1,6 @@
 ﻿using MyProjectLibrary;
 using MyProjectLibrary.Models;
+using MyProjectLibrary.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace MyProjectUI
 {
     public partial class AccountForm : Form
     {
+        private AccountFormValidator validator = new AccountFormValidator();
         private ChangeAccount IsAccountChanable;
-        private bool IsFormValid = false;
 
         public AccountModel AccountModel { get; private set; }
 
@@ -24,21 +25,35 @@ namespace MyProjectUI
             InitializeComponent();
             this.IsAccountChanable = changeable;
             this.AccountModel = accountModel;
-            ConfigureForm(accountModel);
+            ConfigureForm();
         }
 
         private void changeApplayButton_Click(object sender, EventArgs e)
         {
             if (IsAccountChanable == ChangeAccount.Yes)
             {
-                IsAccountChanable = ChangeAccount.No;
-                ConfigureForm(this.AccountModel);
+                string firstName = firstNameTextBox.Text;
+                string lastName = lastNameTextBox.Text;
+                string email = emailTextBox.Text;
+                string phoneNumber = phoneNumberTextBox.Text;
+
+                AccountModel accountModel = validator.ValidateForm(firstName, lastName, email, phoneNumber);
+                
+                if (accountModel != null)
+                {
+                    IsAccountChanable = ChangeAccount.No;
+                    accountModel.Id = this.AccountModel.Id;
+                    accountModel.UserId = this.AccountModel.UserId;
+                    this.AccountModel = accountModel;
+                    ConfigureForm();
+                }
+
                 return;
             }
             else if (IsAccountChanable == ChangeAccount.No)
             {
                 IsAccountChanable = ChangeAccount.Yes;
-                ConfigureForm(this.AccountModel);
+                ConfigureForm();
                 return;
             }
         }
@@ -54,12 +69,12 @@ namespace MyProjectUI
             this.Close();
         }
 
-        private void ConfigureForm(AccountModel accountModel)
+        private void ConfigureForm()
         {
-            firstNameTextBox.Text = accountModel.FirstName;
-            lastNameTextBox.Text = accountModel.LastName;
-            emailTextBox.Text = accountModel.Email;
-            phoneNumberTextBox.Text = accountModel.PhoneNumber.ToString();
+            firstNameTextBox.Text = this.AccountModel.FirstName;
+            lastNameTextBox.Text = this.AccountModel.LastName;
+            emailTextBox.Text = this.AccountModel.Email;
+            phoneNumberTextBox.Text = this.AccountModel.PhoneNumber.ToString();
 
             if (IsAccountChanable == ChangeAccount.Yes)
             {
