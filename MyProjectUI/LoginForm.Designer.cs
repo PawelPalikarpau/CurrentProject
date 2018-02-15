@@ -39,56 +39,66 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(110, 66);
+            this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.passwordTextBox.Location = new System.Drawing.Point(122, 69);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
-            this.passwordTextBox.Size = new System.Drawing.Size(283, 29);
+            this.passwordTextBox.Size = new System.Drawing.Size(314, 20);
             this.passwordTextBox.TabIndex = 1;
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(22, 34);
+            this.emailLabel.Location = new System.Drawing.Point(24, 34);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(57, 21);
+            this.emailLabel.Size = new System.Drawing.Size(60, 21);
             this.emailLabel.TabIndex = 1;
             this.emailLabel.Text = "E-mail:";
             // 
             // loginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.loginButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.loginButton.Location = new System.Drawing.Point(24, 113);
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.loginButton.Location = new System.Drawing.Point(27, 113);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(119, 56);
+            this.loginButton.Size = new System.Drawing.Size(132, 56);
             this.loginButton.TabIndex = 2;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.loginButton.MouseEnter += new System.EventHandler(this.loginButton_MouseEnter);
+            this.loginButton.MouseLeave += new System.EventHandler(this.loginButton_MouseLeave);
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(22, 69);
+            this.passwordLabel.Location = new System.Drawing.Point(24, 69);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(79, 21);
+            this.passwordLabel.Size = new System.Drawing.Size(86, 21);
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Password:";
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(110, 31);
+            this.emailTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.emailTextBox.Location = new System.Drawing.Point(122, 34);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(283, 29);
+            this.emailTextBox.Size = new System.Drawing.Size(314, 20);
             this.emailTextBox.TabIndex = 0;
             // 
             // exitButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.exitButton.Location = new System.Drawing.Point(274, 113);
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.exitButton.Location = new System.Drawing.Point(304, 113);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(119, 56);
+            this.exitButton.Size = new System.Drawing.Size(132, 56);
             this.exitButton.TabIndex = 4;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -96,11 +106,12 @@
             // 
             // registrateButton
             // 
-            this.registrateButton.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.registrateButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.registrateButton.Location = new System.Drawing.Point(149, 113);
+            this.registrateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.registrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registrateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.registrateButton.Location = new System.Drawing.Point(166, 113);
             this.registrateButton.Name = "registrateButton";
-            this.registrateButton.Size = new System.Drawing.Size(119, 56);
+            this.registrateButton.Size = new System.Drawing.Size(132, 56);
             this.registrateButton.TabIndex = 3;
             this.registrateButton.Text = "Registrate";
             this.registrateButton.UseVisualStyleBackColor = false;
@@ -108,10 +119,9 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(423, 197);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.ClientSize = new System.Drawing.Size(470, 197);
             this.Controls.Add(this.registrateButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.emailTextBox);
@@ -119,7 +129,9 @@
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.passwordTextBox);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

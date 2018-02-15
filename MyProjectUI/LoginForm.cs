@@ -34,6 +34,7 @@ namespace MyProjectUI
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            loginButton.ForeColor = Color.Yellow;
             string email = emailTextBox.Text;
             string password = passwordTextBox.Text;
 
@@ -64,6 +65,17 @@ namespace MyProjectUI
             
             this.Visible = true;
             this.Enabled = true;
+        }
+
+        private void loginButton_MouseLeave(object sender, EventArgs e)
+        {
+            loginButton.ForeColor = Color.FromArgb(62, 120, 138);
+        }
+
+        private void loginButton_MouseEnter(object sender, EventArgs e)
+        {
+            loginButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            loginButton.ForeColor = Color.Yellow;
         }
     }
 }
