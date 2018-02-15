@@ -28,6 +28,40 @@ namespace MyProjectUI
             ConfigureForm();
         }
 
+        private void ConfigureForm()
+        {
+            firstNameTextBox.Text = this.AccountModel.FirstName;
+            lastNameTextBox.Text = this.AccountModel.LastName;
+            emailTextBox.Text = this.AccountModel.Email;
+            phoneNumberTextBox.Text = this.AccountModel.PhoneNumber.ToString();
+
+            if (IsValidForm == false)
+                exitButton.ForeColor = Color.Red;
+            else
+                exitButton.ForeColor = Color.FromArgb(62, 120, 138);
+
+            exitButton.Enabled = IsValidForm;
+
+            if (IsAccountChanable == ChangeAccount.Yes)
+            {
+                firstNameTextBox.ReadOnly = false;
+                lastNameTextBox.ReadOnly = false;
+                emailTextBox.ReadOnly = false;
+                phoneNumberTextBox.ReadOnly = false;
+
+                changeApplayButton.Text = "Apply Changes";
+            }
+            else if (IsAccountChanable == ChangeAccount.No)
+            {
+                firstNameTextBox.ReadOnly = true;
+                lastNameTextBox.ReadOnly = true;
+                emailTextBox.ReadOnly = true;
+                phoneNumberTextBox.ReadOnly = true;
+
+                changeApplayButton.Text = "Change Account";
+            }
+        }
+
         private void changeApplayButton_Click(object sender, EventArgs e)
         {
             if (IsAccountChanable == ChangeAccount.Yes)
@@ -38,7 +72,7 @@ namespace MyProjectUI
                 string phoneNumber = phoneNumberTextBox.Text;
 
                 AccountModel accountModel = validator.ValidateForm(firstName, lastName, email, phoneNumber);
-                
+
                 if (accountModel != null)
                 {
                     IsAccountChanable = ChangeAccount.No;
@@ -73,35 +107,6 @@ namespace MyProjectUI
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void ConfigureForm()
-        {
-            firstNameTextBox.Text = this.AccountModel.FirstName;
-            lastNameTextBox.Text = this.AccountModel.LastName;
-            emailTextBox.Text = this.AccountModel.Email;
-            phoneNumberTextBox.Text = this.AccountModel.PhoneNumber.ToString();
-
-            exitButton.Enabled = IsValidForm;
-
-            if (IsAccountChanable == ChangeAccount.Yes)
-            {
-                firstNameTextBox.ReadOnly = false;
-                lastNameTextBox.ReadOnly = false;
-                emailTextBox.ReadOnly = false;
-                phoneNumberTextBox.ReadOnly = false;
-
-                changeApplayButton.Text = "Apply Changes";
-            }
-            else if (IsAccountChanable == ChangeAccount.No)
-            {
-                firstNameTextBox.ReadOnly = true;
-                lastNameTextBox.ReadOnly = true;
-                emailTextBox.ReadOnly = true;
-                phoneNumberTextBox.ReadOnly = true;
-
-                changeApplayButton.Text = "Change Account";
-            }
         }
     }
 }

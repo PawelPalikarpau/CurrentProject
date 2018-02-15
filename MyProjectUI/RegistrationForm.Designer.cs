@@ -34,8 +34,8 @@
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.secondPasswordTextBox = new System.Windows.Forms.TextBox();
             this.firstPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.backButton = new System.Windows.Forms.Button();
-            this.registrationButton = new System.Windows.Forms.Button();
+            this.registrationButton = new MyProjectUI.CustomForms.RegularButton();
+            this.backButton = new MyProjectUI.CustomForms.RegularButton();
             this.SuspendLayout();
             // 
             // emailLabel
@@ -100,22 +100,14 @@
             this.firstPasswordTextBox.Size = new System.Drawing.Size(227, 20);
             this.firstPasswordTextBox.TabIndex = 1;
             // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Location = new System.Drawing.Point(243, 169);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(186, 55);
-            this.backButton.TabIndex = 4;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
             // registrationButton
             // 
             this.registrationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.registrationButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.registrationButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registrationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.registrationButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
             this.registrationButton.Location = new System.Drawing.Point(41, 169);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(186, 55);
@@ -124,13 +116,29 @@
             this.registrationButton.UseVisualStyleBackColor = false;
             this.registrationButton.Click += new System.EventHandler(this.registrationButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.backButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
+            this.backButton.Location = new System.Drawing.Point(241, 169);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(186, 55);
+            this.backButton.TabIndex = 4;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(464, 250);
-            this.Controls.Add(this.registrationButton);
             this.Controls.Add(this.backButton);
+            this.Controls.Add(this.registrationButton);
             this.Controls.Add(this.firstPasswordTextBox);
             this.Controls.Add(this.secondPasswordTextBox);
             this.Controls.Add(this.emailTextBox);
@@ -157,7 +165,7 @@
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox secondPasswordTextBox;
         private System.Windows.Forms.TextBox firstPasswordTextBox;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button registrationButton;
+        private CustomForms.RegularButton registrationButton;
+        private CustomForms.RegularButton backButton;
     }
 }

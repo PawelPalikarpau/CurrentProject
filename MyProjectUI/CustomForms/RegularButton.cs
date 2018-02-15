@@ -12,6 +12,8 @@ namespace MyProjectUI.CustomForms
     public partial class RegularButton : Button
     {
         private Color defaultForeColor = Color.FromArgb(62, 120, 138);
+        private Color defaultBackColor = Color.FromArgb(41, 44, 51);
+
         private Color redForeColor = Color.Red;
         private Color yellowForeColor = Color.Yellow;
         private Color greenForeCOlor = Color.Green;
@@ -20,10 +22,11 @@ namespace MyProjectUI.CustomForms
         public RegularButton()
         {
             ForeColor = defaultForeColor;
+            BackColor = defaultBackColor;
             ForeColorOnMouseEnter = yellowForeColor;
             FlatStyle = FlatStyle.Flat;
-            FlatAppearance.MouseOverBackColor = Color.Transparent;
-            FlatAppearance.MouseDownBackColor = Color.Transparent;
+            FlatAppearance.MouseOverBackColor = defaultBackColor;
+            FlatAppearance.MouseDownBackColor = defaultBackColor;
         }
 
         [Description("Change color on mouse enter trigger")]
@@ -36,6 +39,7 @@ namespace MyProjectUI.CustomForms
             }
             set
             {
+                defaultForeColor = ForeColor;
                 this.foreColorOnMouseEnter = value;
             }
         }
