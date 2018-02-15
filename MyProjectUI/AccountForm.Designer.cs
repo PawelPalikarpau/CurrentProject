@@ -36,9 +36,9 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.phoneNumberLabel = new System.Windows.Forms.Label();
-            this.changeApplayButton = new System.Windows.Forms.Button();
-            this.backButton = new System.Windows.Forms.Button();
-            this.exitButton = new System.Windows.Forms.Button();
+            this.changeApplayButton = new MyProjectUI.CustomForms.RegularButton();
+            this.backButton = new MyProjectUI.CustomForms.RegularButton();
+            this.exitButton = new MyProjectUI.CustomForms.RegularButton();
             this.SuspendLayout();
             // 
             // firstNameLabel
@@ -124,9 +124,12 @@
             // changeApplayButton
             // 
             this.changeApplayButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.changeApplayButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.changeApplayButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.changeApplayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changeApplayButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.changeApplayButton.Location = new System.Drawing.Point(16, 157);
+            this.changeApplayButton.ForeColor = System.Drawing.Color.Yellow;
+            this.changeApplayButton.ForeColorOnMouseEnter = System.Drawing.Color.GreenYellow;
+            this.changeApplayButton.Location = new System.Drawing.Point(17, 157);
             this.changeApplayButton.Name = "changeApplayButton";
             this.changeApplayButton.Size = new System.Drawing.Size(153, 57);
             this.changeApplayButton.TabIndex = 4;
@@ -137,8 +140,11 @@
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.backButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.backButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.backButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
             this.backButton.Location = new System.Drawing.Point(176, 157);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(153, 57);
@@ -150,12 +156,15 @@
             // exitButton
             // 
             this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exitButton.Location = new System.Drawing.Point(336, 157);
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.exitButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
+            this.exitButton.Location = new System.Drawing.Point(335, 157);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(153, 57);
-            this.exitButton.TabIndex = 7;
+            this.exitButton.TabIndex = 6;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -198,8 +207,8 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
         private System.Windows.Forms.Label phoneNumberLabel;
-        private System.Windows.Forms.Button changeApplayButton;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button exitButton;
+        private CustomForms.RegularButton changeApplayButton;
+        private CustomForms.RegularButton backButton;
+        private CustomForms.RegularButton exitButton;
     }
 }

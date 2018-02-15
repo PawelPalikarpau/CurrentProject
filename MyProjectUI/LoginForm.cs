@@ -23,13 +23,18 @@ namespace MyProjectUI
         public LoginForm()
         {
             InitializeComponent();
-            emailTextBox.Text = "pawel@gmail.com";
+            emailTextBox.Text = "marta@gmail.com";
             passwordTextBox.Text = "qwer";
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        void registrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            RegistrationForm registrationForm = (RegistrationForm)sender;
+            emailTextBox.Text = registrationForm.EmailText;
+            passwordTextBox.Text = registrationForm.PasswordText;
+            
+            this.Visible = true;
+            this.Enabled = true;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -57,25 +62,9 @@ namespace MyProjectUI
             registrationForm.Show();
         }
 
-        void registrationForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
-            RegistrationForm registrationForm = (RegistrationForm)sender;
-            emailTextBox.Text = registrationForm.EmailText;
-            passwordTextBox.Text = registrationForm.PasswordText;
-            
-            this.Visible = true;
-            this.Enabled = true;
-        }
-
-        private void loginButton_MouseLeave(object sender, EventArgs e)
-        {
-            loginButton.ForeColor = Color.FromArgb(62, 120, 138);
-        }
-
-        private void loginButton_MouseEnter(object sender, EventArgs e)
-        {
-            loginButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            loginButton.ForeColor = Color.Yellow;
+            Application.Exit();
         }
     }
 }
