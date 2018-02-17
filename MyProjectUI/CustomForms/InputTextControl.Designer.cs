@@ -31,6 +31,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.inputTextBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.errorPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -47,7 +48,7 @@
             // 
             // inputTextBox
             // 
-            this.inputTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.inputTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.inputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.inputTextBox.Location = new System.Drawing.Point(192, 6);
@@ -64,15 +65,22 @@
             this.errorLabel.Location = new System.Drawing.Point(192, 27);
             this.errorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(47, 17);
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
             this.errorLabel.TabIndex = 2;
-            this.errorLabel.Text = "label2";
+            // 
+            // errorPanel
+            // 
+            this.errorPanel.Location = new System.Drawing.Point(192, 27);
+            this.errorPanel.Name = "errorPanel";
+            this.errorPanel.Size = new System.Drawing.Size(203, 1);
+            this.errorPanel.TabIndex = 3;
             // 
             // InputTextControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.inputTextBox);
             this.Controls.Add(this.nameLabel);
@@ -80,7 +88,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InputTextControl";
-            this.Size = new System.Drawing.Size(502, 51);
+            this.Size = new System.Drawing.Size(405, 48);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.InputTextControl_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -92,5 +100,6 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox inputTextBox;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Panel errorPanel;
     }
 }

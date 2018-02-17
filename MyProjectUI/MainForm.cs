@@ -48,7 +48,7 @@ namespace MyProjectUI
 
         private void ShowAccountForm(AccountModel accountModel)
         {
-            AccountForm accountForm = new AccountForm( accountModel);
+            AccountForm accountForm = new AccountForm(accountModel);
             accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
             accountForm.Show();
         }

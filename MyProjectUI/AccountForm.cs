@@ -17,8 +17,10 @@ namespace MyProjectUI
     public partial class AccountForm : Form
     {
         private AccountFormValidator validator = new AccountFormValidator();
-        private ChangeAccount IsAccountChanable = ChangeAccount.No;
-        private Boolean IsValidForm = false;
+        private ChangeAccount isAccountChanable = ChangeAccount.No;
+        private Boolean isValidForm = false;
+        private bool isAlreadyLaunched = false;
+        Dictionary<string, string> errors = new Dictionary<string, string>();
 
         public AccountModel AccountModel { get; private set; }
 
@@ -27,37 +29,39 @@ namespace MyProjectUI
             InitializeComponent();
             this.AccountModel = accountModel;
             ConfigureForm();
+            RefreshTextControls();
+            isAlreadyLaunched = false;
         }
 
         private void ConfigureForm()
         {
-            firstNameTextBox.Text = this.AccountModel.FirstName;
-            lastNameTextBox.Text = this.AccountModel.LastName;
-            emailTextBox.Text = this.AccountModel.Email;
-            phoneNumberTextBox.Text = this.AccountModel.PhoneNumber.ToString();
+            firstNameTextControl.InputText = this.AccountModel.FirstName;
+            lastNameTextControl.InputText = this.AccountModel.LastName;
+            emailTextControl.InputText = this.AccountModel.Email;
+            phoneTextControl.InputText = this.AccountModel.PhoneNumber.ToString();
 
-            if (IsValidForm == false)
+            if (isValidForm == false)
                 exitButton.ForeColor = Color.Red;
             else
                 exitButton.ForeColor = Color.FromArgb(62, 120, 138);
 
-            exitButton.Enabled = IsValidForm;
+            exitButton.Enabled = isValidForm;
 
-            if (IsAccountChanable == ChangeAccount.Yes)
+            if (isAccountChanable == ChangeAccount.Yes)
             {
-                firstNameTextBox.ReadOnly = false;
-                lastNameTextBox.ReadOnly = false;
-                emailTextBox.ReadOnly = false;
-                phoneNumberTextBox.ReadOnly = false;
+                firstNameTextControl.readOnly = false;
+                lastNameTextControl.readOnly = false;
+                emailTextControl.readOnly = false;
+                phoneTextControl.readOnly = false;
 
                 changeApplayButton.Text = "Apply Changes";
             }
-            else if (IsAccountChanable == ChangeAccount.No)
+            else if (isAccountChanable == ChangeAccount.No)
             {
-                firstNameTextBox.ReadOnly = true;
-                lastNameTextBox.ReadOnly = true;
-                emailTextBox.ReadOnly = true;
-                phoneNumberTextBox.ReadOnly = true;
+                firstNameTextControl.readOnly = true;
+                lastNameTextControl.readOnly = true;
+                emailTextControl.readOnly = true;
+                phoneTextControl.readOnly = true;
 
                 changeApplayButton.Text = "Change Account";
             }
@@ -65,36 +69,48 @@ namespace MyProjectUI
 
         private void changeApplayButton_Click(object sender, EventArgs e)
         {
-            if (IsAccountChanable == ChangeAccount.Yes)
+            if (isAccountChanable == ChangeAccount.Yes)
             {
-                string firstName = firstNameTextBox.Text;
-                string lastName = lastNameTextBox.Text;
-                string email = emailTextBox.Text;
-                string phoneNumber = phoneNumberTextBox.Text;
+                string firstName = firstNameTextControl.InputText;
+                string lastName = lastNameTextControl.InputText;
+                string email = emailTextControl.InputText;
+                string phoneNumber = phoneTextControl.InputText;
 
-                AccountModel accountModel = validator.ValidateForm(firstName, lastName, email, phoneNumber);
+                errors = new Dictionary<string, string>();
+                errors = validator.ValidateForm(firstName, lastName, email, phoneNumber);
 
-                if (accountModel != null)
+                if (errors.Count == 0)
                 {
-                    IsAccountChanable = ChangeAccount.No;
-                    IsValidForm = true;
+                    isAccountChanable = ChangeAccount.No;
+                    isValidForm = true;
 
+                    AccountModel accountModel = new AccountModel();
                     accountModel.Id = this.AccountModel.Id;
                     accountModel.UserId = this.AccountModel.UserId;
+                    accountModel.FirstName = firstName;
+                    accountModel.LastName = lastName;
+                    accountModel.Email = email;
+                    accountModel.PhoneNumber = Int32.Parse(phoneNumber);
                     this.AccountModel = accountModel;
 
                     GlobalConfig.Connection.AccountsOperations().UpdateAccount(this.AccountModel);
 
                     ConfigureForm();
+                    RefreshTextControls();
+                }
+                else
+                {
+                    RefreshTextControls();
                 }
 
                 return;
             }
-            else if (IsAccountChanable == ChangeAccount.No)
+            else if (isAccountChanable == ChangeAccount.No)
             {
-                IsAccountChanable = ChangeAccount.Yes;
-                IsValidForm = false;
+                isAccountChanable = ChangeAccount.Yes;
+                isValidForm = false;
                 ConfigureForm();
+                RefreshTextControls();
                 return;
             }
         }
@@ -108,6 +124,41 @@ namespace MyProjectUI
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void RefreshTextControls()
+        {
+            firstNameTextControl.ErrorLabelText = "";
+            lastNameTextControl.ErrorLabelText = "";
+            emailTextControl.ErrorLabelText = "";
+            phoneTextControl.ErrorLabelText = "";
+
+            if (isAlreadyLaunched)
+            {
+                if (errors.ContainsKey("firstName")) firstNameTextControl.ErrorLabelText = errors["firstName"];
+                if (errors.ContainsKey("lastName")) lastNameTextControl.ErrorLabelText = errors["lastName"];
+                if (errors.ContainsKey("email")) emailTextControl.ErrorLabelText = errors["email"];
+                if (errors.ContainsKey("phone")) phoneTextControl.ErrorLabelText = errors["phone"];
+
+                if (firstNameTextControl.ErrorLabelText != "") firstNameTextControl.ErrorType = ErrorMessageType.Error;
+                else firstNameTextControl.ErrorType = ErrorMessageType.OK;
+
+                if (lastNameTextControl.ErrorLabelText != "") lastNameTextControl.ErrorType = ErrorMessageType.Error;
+                else lastNameTextControl.ErrorType = ErrorMessageType.OK;
+
+                if (emailTextControl.ErrorLabelText != "") emailTextControl.ErrorType = ErrorMessageType.Error;
+                else emailTextControl.ErrorType = ErrorMessageType.OK;
+
+                if (phoneTextControl.ErrorLabelText != "") phoneTextControl.ErrorType = ErrorMessageType.Error;
+                else phoneTextControl.ErrorType = ErrorMessageType.OK;
+            }
+
+            isAlreadyLaunched = true;
+
+            firstNameTextControl.Refresh();
+            lastNameTextControl.Refresh();
+            emailTextControl.Refresh();
+            phoneTextControl.Refresh();
         }
     }
 }

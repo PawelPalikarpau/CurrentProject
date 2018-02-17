@@ -13,78 +13,112 @@ namespace MyProjectUI.CustomForms
 {
     public partial class InputTextControl : UserControl
     {
-        public ErrorMessageType errorType;
-        private bool isVisibleErrorLine = false;
-        private Color errorLineColor;
+        Color errorLineColor = Color.FromArgb(60, 120, 138);
+        private ErrorMessageType errorType;
+        public bool readOnly = false;
+
+        [Category("Custom Configs")]
+        public ErrorMessageType ErrorType
+        {
+            get { return errorType; }
+            set { errorType = value; }
+        }
 
         [Category("Custom Configs")]
         public string NameLabelText
         {
-            get { return this.nameLabel.Text; }
-            set { this.nameLabel.Text = value; }
+            get { return nameLabel.Text; }
+            set { nameLabel.Text = value; }
         }
 
         [Category("Custom Configs")]
         public string ErrorLabelText
         {
-            get { return this.errorLabel.Text; }
-            set { this.errorLabel.Text = value; }
+            get { return errorLabel.Text; }
+            set { errorLabel.Text = value; }
         }
 
         [Category("Custom Configs")]
         public Point TextBoxLocation
         {
-            get { return this.inputTextBox.Location; }
+            get { return inputTextBox.Location; }
             set
             {
-                this.inputTextBox.Location = value;
-                this.errorLabel.Location = new Point(value.X, value.Y + 21);
+                inputTextBox.Location = value;
+                errorPanel.Location = new Point(value.X, 25);
+                errorLabel.Location = new Point(value.X, errorLabel.Location.Y);
             }
         }
 
         [Category("Custom Configs")]
         public Size TextBoxSize
         {
-            get { return this.inputTextBox.Size; }
-            set { this.inputTextBox.Size = value; }
+            get { return inputTextBox.Size; }
+            set
+            {
+                inputTextBox.Size = value;
+                errorPanel.Size = new Size(value.Width, 1);
+            }
+        }
+
+        [Category("Custom Configs")]
+        public string InputText
+        {
+            get { return this.inputTextBox.Text; }
+            set { this.inputTextBox.Text = value; }
+        }
+
+        [Category("Custom Configs")]
+        public char CharForPassword
+        {
+            get { return inputTextBox.PasswordChar;  }
+            set { inputTextBox.PasswordChar = value; }
         }
 
         public InputTextControl()
         {
-            errorType = ErrorMessageType.OK;
             InitializeComponent();
+            ConfigureErrorDisplay();
+        }
+
+        private void ConfigureErrorDisplay()
+        {
+            inputTextBox.ReadOnly = this.readOnly;
+            if (ErrorType == ErrorMessageType.Error)
+            {
+                errorPanel.BackColor = Color.Red;
+                errorPanel.Visible = true;
+                errorLabel.Visible = true;
+            }
+            else if (ErrorType == ErrorMessageType.Warning)
+            {
+                errorPanel.BackColor = Color.Yellow;
+                errorPanel.Visible = true;
+                errorLabel.Visible = false;
+            }
+            else if (ErrorType == ErrorMessageType.OK)
+            {
+                errorPanel.Visible = false;
+                errorLabel.Visible = false;
+            }
+        }
+
+        public override void Refresh()
+        {
+            base.Refresh();
             ConfigureErrorDisplay();
         }
 
         private void InputTextControl_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
+            Graphics gr = e.Graphics;
             Pen penPath = new Pen(Color.FromArgb(60, 120, 138), 1);
-            g.DrawLine(penPath, nameLabel.Left, nameLabel.Bottom, inputTextBox.Right, inputTextBox.Bottom);
 
-            if (isVisibleErrorLine)
-            {
-                Pen penError = new Pen(errorLineColor, 2);
-                g.DrawLine(penError, inputTextBox.Left, inputTextBox.Bottom, inputTextBox.Right, inputTextBox.Bottom);
-            }
-            g.Dispose();
-        }
+            Point startPointLabel = new Point(nameLabel.Left, nameLabel.Bottom);
+            Point finishPointTextBox = new Point(inputTextBox.Right, inputTextBox.Bottom);
 
-        private void ConfigureErrorDisplay()
-        {
-            errorLabel.Visible = false;
-            if (errorType == ErrorMessageType.Error)
-            {
-                errorLineColor = Color.Red;
-                errorLabel.Visible = true;
-                isVisibleErrorLine = true;
-            }
-            else if (errorType == ErrorMessageType.Warning)
-            {
-                errorLineColor = Color.Yellow;
-                errorLabel.Visible = false;
-                isVisibleErrorLine = true;
-            }
+            gr.DrawLine(penPath, startPointLabel, finishPointTextBox);
+            gr.Dispose();
         }
     }
 }
