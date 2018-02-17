@@ -72,7 +72,8 @@ namespace MyProjectUI
                 string email = emailTextBox.Text;
                 string phoneNumber = phoneNumberTextBox.Text;
 
-                AccountModel accountModel = validator.ValidateForm(firstName, lastName, email, phoneNumber);
+                AccountModel accountModel = null;
+                    //validator.ValidateForm(firstName, lastName, email, phoneNumber);
 
                 if (accountModel != null)
                 {

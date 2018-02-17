@@ -20,6 +20,8 @@ namespace MyProjectUI
         public MainForm()
         {
             InitializeComponent();
+            inputTextControl1.errorType = MyProjectLibrary.Enums.ErrorMessageType.Error;
+            inputTextControl1.Refresh();
             this.Show();
             if (UserModel == null) ShowLoginForm();
         }
@@ -38,11 +40,11 @@ namespace MyProjectUI
             this.UserModel = loginForm.UserModel;
             this.AccountModel = loginForm.AccountModel;
 
-            if (UserModel == null)
-                Application.Exit();
-            else if (AccountModel.FirstName == null)
-                ShowAccountForm(this.AccountModel);
-            else
+            //if (UserModel == null)
+                //Application.Exit();
+            //else if (AccountModel.FirstName == null)
+                //ShowAccountForm(this.AccountModel);
+            //else
                 this.Enabled = true;
         }
 

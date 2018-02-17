@@ -10,54 +10,69 @@ namespace MyProjectLibrary.Validators
 {
     public class ErrorsValidator
     {
+        const string isEmailEmpty = "IsEmailEmpty";
+        const string isFirstPasswordEmpty = "IsFirstPasswordEmpty";
+        const string isSecondPasswordEmpty = "IsSecondPasswordEmpty";
+        const string isVaildEmail = "IsVaildEmail";
+        const string isShortPassword = "IsShortPassword";
+        const string isPaswordConfirm = "IsPaswordConfirm";
+        const string isEmailExists = "IsEmailExists";
+        const string isEmailDoesNotExists = "IsEmailDoesNotExists";
+        const string isPasswordsMatch = "IsPasswordsMatch";
+        const string isFirstNameEmpty = "IsFirstNameEmpty";
+        const string isLastNameEmpty = "IsLastNameEmpty";
+        const string isPhoneNumberEmpty = "IsPhoneNumberEmpty";
+        const string isFirstNameShort = "IsFirstNameShort";
+        const string isLastNameShort = "IsLastNameShort";
+        const string isPhoneNumberNumeric = "IsPhoneNumberNumeric";
+
         private Dictionary<String, String> errorsDictionary = new Dictionary<String, String>();
 
         public ErrorsValidator()
         {
-            this.errorsDictionary.Add("IsEmailEmpty", "You must fill E-mail address." + Environment.NewLine);
-            this.errorsDictionary.Add("IsFirstPasswordEmpty", "You must fill password field." + Environment.NewLine);
-            this.errorsDictionary.Add("IsSecondPasswordEmpty", "You must fill confirm password field." + Environment.NewLine);
-            this.errorsDictionary.Add("IsVaildEmail", "You must fill correct E-mail." + Environment.NewLine);
-            this.errorsDictionary.Add("IsPaswordConfirm", "You must fill the same confirm password." + Environment.NewLine);
-            this.errorsDictionary.Add("IsShortPassword", "The password must be at least of three characters." + Environment.NewLine);
-            this.errorsDictionary.Add("IsEmailExists", "User with such E-mail already exists." + Environment.NewLine);
-            this.errorsDictionary.Add("IsEmailDoesNotExists", "User with such E-mail does not exists." + Environment.NewLine);
-            this.errorsDictionary.Add("IsPasswordsMatch", "The password is inccorect. Please try again." + Environment.NewLine);
-            this.errorsDictionary.Add("IsFirstNameEmpty", "You must fill the first name." + Environment.NewLine);
-            this.errorsDictionary.Add("IsLastNameEmpty", "You must fill the last name." + Environment.NewLine);
-            this.errorsDictionary.Add("IsPhoneNumberEmpty", "You must fill phone number." + Environment.NewLine);
-            this.errorsDictionary.Add("IsFirstNameShort", "The first name must be at least of three characters." + Environment.NewLine);
-            this.errorsDictionary.Add("IsLastNameShort", "The last name must be at least of three characters." + Environment.NewLine);
-            this.errorsDictionary.Add("IsPhoneNumberNumeric", "The Phone number must consists only of numbers." + Environment.NewLine);
+            this.errorsDictionary.Add(isEmailEmpty, "You must fill E-mail address");
+            this.errorsDictionary.Add(isFirstPasswordEmpty, "You must fill password field");
+            this.errorsDictionary.Add(isSecondPasswordEmpty, "You must fill confirm password field");
+            this.errorsDictionary.Add(isVaildEmail, "You must fill correct E-mail");
+            this.errorsDictionary.Add(isShortPassword, "You must fill the same confirm password");
+            this.errorsDictionary.Add(isPaswordConfirm, "The password must be at least of three characters");
+            this.errorsDictionary.Add(isEmailExists, "User with such E-mail already exists");
+            this.errorsDictionary.Add(isEmailDoesNotExists, "User with such E-mail does not exists");
+            this.errorsDictionary.Add(isPasswordsMatch, "The password is inccorect. Please try again");
+            this.errorsDictionary.Add(isFirstNameEmpty, "You must fill the first name");
+            this.errorsDictionary.Add(isLastNameEmpty, "You must fill the last name");
+            this.errorsDictionary.Add(isPhoneNumberEmpty, "You must fill phone number");
+            this.errorsDictionary.Add(isFirstNameShort, "The first name must be at least of three characters");
+            this.errorsDictionary.Add(isLastNameShort, "The last name must be at least of three characters");
+            this.errorsDictionary.Add(isPhoneNumberNumeric, "The Phone number must consists only of numbers");
         }
 
-        public bool AreErrors(ValidationModel validationModel)
+        public Dictionary<String, string> AreErrors(ValidationModel validationModel)
         {
-            StringBuilder errors = new StringBuilder();
+            Dictionary<string, string> errors = new Dictionary<string, string>();
 
-            if (validationModel.IsEmailEmpty)  errors.Append(errorsDictionary["IsEmailEmpty"]);
-            if (validationModel.IsFirstPasswordEmpty)  errors.Append(errorsDictionary["IsFirstPasswordEmpty"]);
-            if (validationModel.IsSecondPasswordEmpty)  errors.Append(errorsDictionary["IsSecondPasswordEmpty"]);
-            if (validationModel.IsInvaildEmail) errors.Append(errorsDictionary["IsVaildEmail"]);
-            if (validationModel.IsShortPassword) errors.Append(errorsDictionary["IsShortPassword"]);
-            if (validationModel.IsPasswordNotConfirm) errors.Append(errorsDictionary["IsPaswordConfirm"]);
-            if (validationModel.IsEmailExists) errors.Append(errorsDictionary["IsEmailExists"]);
-            if (validationModel.IsEmailDoesNotExists) errors.Append(errorsDictionary["IsEmailDoesNotExists"]);
-            if (validationModel.IsPasswordsMatch) errors.Append(errorsDictionary["IsPasswordsMatch"]);
-            if (validationModel.IsFirstNameEmpty) errors.Append(errorsDictionary["IsFirstNameEmpty"]);
-            if (validationModel.IsLastNameEmpty) errors.Append(errorsDictionary["IsLastNameEmpty"]);
-            if (validationModel.IsPhoneNumberEmpty) errors.Append(errorsDictionary["IsPhoneNumberEmpty"]);
-            if (validationModel.IsFirstNameShort) errors.Append(errorsDictionary["IsFirstNameShort"]);
-            if (validationModel.IsLastNameShort) errors.Append(errorsDictionary["IsLastNameShort"]);
-            if (validationModel.IsPhoneNumberNumeric) errors.Append(errorsDictionary["IsPhoneNumberNumeric"]);
+            if (validationModel.IsEmailEmpty) errors.Add("email", errorsDictionary[isEmailEmpty]);
+            if (validationModel.IsFirstPasswordEmpty) errors.Add("firstPassword", errorsDictionary[isFirstPasswordEmpty]);
+            if (validationModel.IsSecondPasswordEmpty) errors.Add("secondPassword", errorsDictionary[isSecondPasswordEmpty]);
+            if (validationModel.IsInvaildEmail) errors.Add("email", errorsDictionary[isVaildEmail]);
+            if (validationModel.IsShortPassword) errors.Add("firstPassword", errorsDictionary[isShortPassword]);
+            if (validationModel.IsPasswordNotConfirm) errors.Add("secondPassword", errorsDictionary[isPaswordConfirm]);
+            if (validationModel.IsEmailExists) errors.Add("email", errorsDictionary[isEmailExists]);
+            if (validationModel.IsEmailDoesNotExists) errors.Add("email", errorsDictionary[isEmailDoesNotExists]);
+            if (validationModel.IsPasswordsMatch) errors.Add("secondPasswrod", errorsDictionary[isPasswordsMatch]);
+            if (validationModel.IsFirstNameEmpty) errors.Add("firstName", errorsDictionary[isFirstNameEmpty]);
+            if (validationModel.IsLastNameEmpty) errors.Add("lastName", errorsDictionary[isLastNameEmpty]);
+            if (validationModel.IsPhoneNumberEmpty) errors.Add("phone", errorsDictionary[isPhoneNumberEmpty]);
+            if (validationModel.IsFirstNameShort) errors.Add("firstName", errorsDictionary[isFirstNameShort]);
+            if (validationModel.IsLastNameShort) errors.Add("lastName", errorsDictionary[isLastNameShort]);
+            if (validationModel.IsPhoneNumberNumeric) errors.Add("phone", errorsDictionary[isPhoneNumberNumeric]);
 
-            if (errors.ToString() != "")
+            if (errors.Count != 0)
             {
-                MessageBox.Show(errors.ToString());
-                return true;
+                return errors;
             }
 
-            return false;
+            return null;
         }
     }
 }

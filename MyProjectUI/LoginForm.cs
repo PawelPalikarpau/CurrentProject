@@ -40,17 +40,19 @@ namespace MyProjectUI
         private void loginButton_Click(object sender, EventArgs e)
         {
             loginButton.ForeColor = Color.Yellow;
-            string email = emailTextBox.Text;
-            string password = passwordTextBox.Text;
+            this.Close();
+            //string email = emailTextBox.Text;
+            //string password = passwordTextBox.Text;
 
-            UserModel userModel = validator.ValidateForm(email, password);
+            //UserModel userModel = null;
+            //    //validator.ValidateForm(email, password);
 
-            if (userModel != null)
-            {
-                this.UserModel = userModel;
-                this.AccountModel = GlobalConfig.Connection.AccountsOperations().GetAccountByUserId(this.UserModel.Id);
-                this.Close();
-            }
+            //if (userModel != null)
+            //{
+            //    this.UserModel = userModel;
+            //    this.AccountModel = GlobalConfig.Connection.AccountsOperations().GetAccountByUserId(this.UserModel.Id);
+            //    this.Close();
+            //}
         }
 
         private void registrateButton_Click(object sender, EventArgs e)

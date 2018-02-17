@@ -13,40 +13,35 @@ namespace MyProjectLibrary.Validators
         ErrorsValidator errorsValidator = new ErrorsValidator();
 
         ValidationModel validationModel;
+        Dictionary<string, string> errors;
 
-        public UserModel ValidateForm(string email, string password)
+        public Dictionary<string, string> ValidateForm(string email, string password)
         {
             validationModel = new ValidationModel();
             validationModel.IsEmailEmpty = fieldValidator.IsFieldEmpty(email);
             validationModel.IsFirstPasswordEmpty = fieldValidator.IsFieldEmpty(password);
 
-            if (errorsValidator.AreErrors(validationModel)) return null;
+            errors = errorsValidator.AreErrors(validationModel);
+            if (errors != null) return errors;
 
             validationModel.IsInvaildEmail = fieldValidator.IsValidEmail(email);
 
-            if (errorsValidator.AreErrors(validationModel)) return null;
+            errors = errorsValidator.AreErrors(validationModel);
+            if (errors != null) return errors;
 
-            UserModel userModel = IsEmailExists(email);
-            if (userModel != null)
+            UserModel userModel = GlobalConfig.Connection.UsersOperations().GetUserByEmail(email);
+            validationModel.IsEmailDoesNotExists = userModel.Password == null;
+
+            errors = errorsValidator.AreErrors(validationModel);
+            if (errors != null)
             {
                 validationModel.IsPasswordsMatch = fieldValidator.IsPasswrodConfirm(password, userModel.Password);
-                if (errorsValidator.AreErrors(validationModel)) return null;
-                return userModel;
+
+                errors = errorsValidator.AreErrors(validationModel);
+                if (errors != null) return errors;
             }
 
             return null;
-        }
-
-        private UserModel IsEmailExists(string email)
-        {
-            UserModel userModel = GlobalConfig.Connection.UsersOperations().GetUserByEmail(email);
-
-            validationModel = new ValidationModel();
-            validationModel.IsEmailDoesNotExists = userModel.Password == null;
-
-            if (errorsValidator.AreErrors(validationModel)) return null;
-
-            return userModel;
         }
     }
 }
