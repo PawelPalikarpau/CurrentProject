@@ -13,8 +13,15 @@ namespace MyProjectUI.CustomForms
 {
     public partial class InputTextControl : UserControl
     {
-        public ErrorMessageType errorType;
         Color errorLineColor = Color.FromArgb(60, 120, 138);
+        private ErrorMessageType errorType;
+
+        [Category("Custom Configs")]
+        public ErrorMessageType ErrorType
+        {
+            get { return errorType; }
+            set { errorType = value; }
+        }
 
         [Category("Custom Configs")]
         public string NameLabelText
@@ -60,28 +67,34 @@ namespace MyProjectUI.CustomForms
             set { this.inputTextBox.Text = value; }
         }
 
+        [Category("Custom Configs")]
+        public char CharForPassword
+        {
+            get { return inputTextBox.PasswordChar;  }
+            set { inputTextBox.PasswordChar = value; }
+        }
+
         public InputTextControl()
         {
-            errorType = ErrorMessageType.OK;
             InitializeComponent();
             ConfigureErrorDisplay();
         }
 
         private void ConfigureErrorDisplay()
         {
-            if (errorType == ErrorMessageType.Error)
+            if (ErrorType == ErrorMessageType.Error)
             {
                 errorPanel.BackColor = Color.Red;
                 errorPanel.Visible = true;
                 errorLabel.Visible = true;
             }
-            else if (errorType == ErrorMessageType.Warning)
+            else if (ErrorType == ErrorMessageType.Warning)
             {
                 errorPanel.BackColor = Color.Yellow;
                 errorPanel.Visible = true;
                 errorLabel.Visible = false;
             }
-            else if (errorType == ErrorMessageType.OK)
+            else if (ErrorType == ErrorMessageType.OK)
             {
                 errorPanel.Visible = false;
                 errorLabel.Visible = false;
@@ -100,7 +113,6 @@ namespace MyProjectUI.CustomForms
             Pen penPath = new Pen(Color.FromArgb(60, 120, 138), 1);
 
             Point startPointLabel = new Point(nameLabel.Left, nameLabel.Bottom);
-            Point startPointTextBox = new Point(inputTextBox.Left, inputTextBox.Bottom);
             Point finishPointTextBox = new Point(inputTextBox.Right, inputTextBox.Bottom);
 
             gr.DrawLine(penPath, startPointLabel, finishPointTextBox);

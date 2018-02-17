@@ -65,9 +65,8 @@
             this.errorLabel.Location = new System.Drawing.Point(192, 27);
             this.errorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(47, 17);
+            this.errorLabel.Size = new System.Drawing.Size(0, 17);
             this.errorLabel.TabIndex = 2;
-            this.errorLabel.Text = "label2";
             // 
             // errorPanel
             // 

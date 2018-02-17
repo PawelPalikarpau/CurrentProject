@@ -20,8 +20,6 @@ namespace MyProjectUI
         public MainForm()
         {
             InitializeComponent();
-            inputTextControl1.errorType = MyProjectLibrary.Enums.ErrorMessageType.Error;
-            inputTextControl1.Refresh();
             this.Show();
             if (UserModel == null) ShowLoginForm();
         }

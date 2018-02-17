@@ -28,31 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.inputTextControl1 = new MyProjectUI.CustomForms.InputTextControl();
             this.SuspendLayout();
-            // 
-            // inputTextControl1
-            // 
-            this.inputTextControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
-            this.inputTextControl1.ErrorLabelText = "ERROR";
-            this.inputTextControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.inputTextControl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.inputTextControl1.InputText = "";
-            this.inputTextControl1.Location = new System.Drawing.Point(361, 147);
-            this.inputTextControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.inputTextControl1.Name = "inputTextControl1";
-            this.inputTextControl1.NameLabelText = "label1";
-            this.inputTextControl1.Size = new System.Drawing.Size(405, 48);
-            this.inputTextControl1.TabIndex = 0;
-            this.inputTextControl1.TextBoxLocation = new System.Drawing.Point(192, 6);
-            this.inputTextControl1.TextBoxSize = new System.Drawing.Size(203, 19);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(968, 795);
-            this.Controls.Add(this.inputTextControl1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -65,7 +47,5 @@
         }
 
         #endregion
-
-        private CustomForms.InputTextControl inputTextControl1;
     }
 }
