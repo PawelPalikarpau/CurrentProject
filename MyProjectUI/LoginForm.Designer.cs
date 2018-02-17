@@ -32,9 +32,9 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.loginButton = new MyProjectUI.CustomForms.RegularButton();
-            this.registrateButton = new MyProjectUI.CustomForms.RegularButton();
             this.exitButton = new MyProjectUI.CustomForms.RegularButton();
+            this.registrateButton = new MyProjectUI.CustomForms.RegularButton();
+            this.loginButton = new MyProjectUI.CustomForms.RegularButton();
             this.SuspendLayout();
             // 
             // passwordTextBox
@@ -69,28 +69,27 @@
             // emailTextBox
             // 
             this.emailTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.emailTextBox.Location = new System.Drawing.Point(122, 34);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(314, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(314, 27);
             this.emailTextBox.TabIndex = 0;
             // 
-            // loginButton
+            // exitButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.loginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.loginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.loginButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.loginButton.Location = new System.Drawing.Point(28, 113);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(132, 56);
-            this.loginButton.TabIndex = 2;
-            this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.exitButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
+            this.exitButton.Location = new System.Drawing.Point(304, 113);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(132, 56);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // registrateButton
             // 
@@ -108,21 +107,21 @@
             this.registrateButton.UseVisualStyleBackColor = false;
             this.registrateButton.Click += new System.EventHandler(this.registrateButton_Click);
             // 
-            // exitButton
+            // loginButton
             // 
-            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.exitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.exitButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.exitButton.Location = new System.Drawing.Point(304, 113);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(132, 56);
-            this.exitButton.TabIndex = 4;
-            this.exitButton.Text = "Exit";
-            this.exitButton.UseVisualStyleBackColor = false;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.loginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.loginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.loginButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
+            this.loginButton.Location = new System.Drawing.Point(28, 113);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(132, 56);
+            this.loginButton.TabIndex = 2;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // LoginForm
             // 
