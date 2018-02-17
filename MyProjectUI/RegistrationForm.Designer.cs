@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.confirmPasswrodTextControl = new MyProjectUI.CustomForms.InputTextControl();
-            this.paswordTextControl = new MyProjectUI.CustomForms.InputTextControl();
+            this.passwordTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.emailTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.backButton = new MyProjectUI.CustomForms.RegularButton();
             this.registrationButton = new MyProjectUI.CustomForms.RegularButton();
@@ -53,23 +53,23 @@
             this.confirmPasswrodTextControl.TextBoxLocation = new System.Drawing.Point(160, 6);
             this.confirmPasswrodTextControl.TextBoxSize = new System.Drawing.Size(235, 19);
             // 
-            // paswordTextControl
+            // passwordTextControl
             // 
-            this.paswordTextControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
-            this.paswordTextControl.CharForPassword = '*';
-            this.paswordTextControl.ErrorLabelText = "";
-            this.paswordTextControl.ErrorType = MyProjectLibrary.Enums.ErrorMessageType.Warning;
-            this.paswordTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.paswordTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.paswordTextControl.InputText = "";
-            this.paswordTextControl.Location = new System.Drawing.Point(13, 74);
-            this.paswordTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.paswordTextControl.Name = "paswordTextControl";
-            this.paswordTextControl.NameLabelText = "Enter Password";
-            this.paswordTextControl.Size = new System.Drawing.Size(397, 51);
-            this.paswordTextControl.TabIndex = 1;
-            this.paswordTextControl.TextBoxLocation = new System.Drawing.Point(160, 6);
-            this.paswordTextControl.TextBoxSize = new System.Drawing.Size(235, 19);
+            this.passwordTextControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
+            this.passwordTextControl.CharForPassword = '*';
+            this.passwordTextControl.ErrorLabelText = "";
+            this.passwordTextControl.ErrorType = MyProjectLibrary.Enums.ErrorMessageType.Warning;
+            this.passwordTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.passwordTextControl.InputText = "";
+            this.passwordTextControl.Location = new System.Drawing.Point(13, 74);
+            this.passwordTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.passwordTextControl.Name = "passwordTextControl";
+            this.passwordTextControl.NameLabelText = "Enter Password";
+            this.passwordTextControl.Size = new System.Drawing.Size(397, 51);
+            this.passwordTextControl.TabIndex = 1;
+            this.passwordTextControl.TextBoxLocation = new System.Drawing.Point(160, 6);
+            this.passwordTextControl.TextBoxSize = new System.Drawing.Size(235, 19);
             // 
             // emailTextControl
             // 
@@ -83,7 +83,7 @@
             this.emailTextControl.Location = new System.Drawing.Point(13, 13);
             this.emailTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.emailTextControl.Name = "emailTextControl";
-            this.emailTextControl.NameLabelText = "Email";
+            this.emailTextControl.NameLabelText = "E-mail";
             this.emailTextControl.Size = new System.Drawing.Size(397, 51);
             this.emailTextControl.TabIndex = 0;
             this.emailTextControl.TextBoxLocation = new System.Drawing.Point(160, 6);
@@ -127,7 +127,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(426, 264);
             this.Controls.Add(this.confirmPasswrodTextControl);
-            this.Controls.Add(this.paswordTextControl);
+            this.Controls.Add(this.passwordTextControl);
             this.Controls.Add(this.emailTextControl);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.registrationButton);
@@ -146,7 +146,7 @@
         private CustomForms.RegularButton registrationButton;
         private CustomForms.RegularButton backButton;
         private CustomForms.InputTextControl emailTextControl;
-        private CustomForms.InputTextControl paswordTextControl;
+        private CustomForms.InputTextControl passwordTextControl;
         private CustomForms.InputTextControl confirmPasswrodTextControl;
     }
 }

@@ -38,17 +38,17 @@ namespace MyProjectUI
             this.UserModel = loginForm.UserModel;
             this.AccountModel = loginForm.AccountModel;
 
-            //if (UserModel == null)
-                //Application.Exit();
-            //else if (AccountModel.FirstName == null)
-                //ShowAccountForm(this.AccountModel);
-            //else
+            if (UserModel == null)
+                Application.Exit();
+            else if (AccountModel.FirstName == null)
+                ShowAccountForm(this.AccountModel);
+            else
                 this.Enabled = true;
         }
 
         private void ShowAccountForm(AccountModel accountModel)
         {
-            AccountForm accountForm = new AccountForm( accountModel);
+            AccountForm accountForm = new AccountForm(accountModel);
             accountForm.FormClosed += new FormClosedEventHandler(accountForm_FormClosed);
             accountForm.Show();
         }

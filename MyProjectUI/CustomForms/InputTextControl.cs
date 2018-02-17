@@ -15,6 +15,7 @@ namespace MyProjectUI.CustomForms
     {
         Color errorLineColor = Color.FromArgb(60, 120, 138);
         private ErrorMessageType errorType;
+        public bool readOnly = false;
 
         [Category("Custom Configs")]
         public ErrorMessageType ErrorType
@@ -82,6 +83,7 @@ namespace MyProjectUI.CustomForms
 
         private void ConfigureErrorDisplay()
         {
+            inputTextBox.ReadOnly = this.readOnly;
             if (ErrorType == ErrorMessageType.Error)
             {
                 errorPanel.BackColor = Color.Red;

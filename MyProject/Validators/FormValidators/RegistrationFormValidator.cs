@@ -26,7 +26,7 @@ namespace MyProjectLibrary.Validators
             validationModel.IsShortPassword = fieldValidator.IsFieldShort(firstPassword);
 
             validationModel.IsSecondPasswordEmpty = fieldValidator.IsFieldEmpty(secondPassword);
-            validationModel.IsPasswordsMatch = fieldValidator.IsPasswrodConfirm(firstPassword, secondPassword);
+            validationModel.IsSecondPasswordMatch = fieldValidator.IsPasswrodConfirm(firstPassword, secondPassword);
 
             UserModel userModel = GlobalConfig.Connection.UsersOperations().GetUserByEmail(email);
             validationModel.IsEmailExists = userModel.Password != null;

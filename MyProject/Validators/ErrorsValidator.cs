@@ -21,7 +21,8 @@ namespace MyProjectLibrary.Validators
         const string isShortPassword = "IsShortPassword";
 
         const string isSecondPasswordEmpty = "IsSecondPasswordEmpty";
-        const string isPasswordsMatch = "IsPasswordsMatch";
+        const string isSecondPasswordsMatch = "IsPasswordsMatch";
+        const string isDatabasePasswordsMatch = "IsDatabasePasswordsMatch";
 
         // First Name
         const string isFirstNameEmpty = "IsFirstNameEmpty";
@@ -51,8 +52,9 @@ namespace MyProjectLibrary.Validators
 
             // Second Password
             this.errorsDictionary.Add(isSecondPasswordEmpty, "You must fill confirm password field");
-            this.errorsDictionary.Add(isPasswordsMatch, "The password is inccorect");
-            
+            this.errorsDictionary.Add(isSecondPasswordsMatch, "The password is inccorect");
+            this.errorsDictionary.Add(isDatabasePasswordsMatch, "The password is inccorect");
+
             // First Name
             this.errorsDictionary.Add(isFirstNameEmpty, "You must fill the first name");
             this.errorsDictionary.Add(isFirstNameShort, "The first name is too short");
@@ -85,12 +87,14 @@ namespace MyProjectLibrary.Validators
                 errors.Add("firstPassword", errorsDictionary[isFirstPasswordEmpty]);
             if (validationModel.IsShortPassword && !errors.ContainsKey("firstPassword"))
                 errors.Add("firstPassword", errorsDictionary[isShortPassword]);
+            if (validationModel.IsDatabasePasswordMatch && !errors.ContainsKey("firstPassword"))
+                errors.Add("firstPassword", errorsDictionary[isDatabasePasswordsMatch]);
 
             // Second Password
             if (validationModel.IsSecondPasswordEmpty && !errors.ContainsKey("secondPassword"))
                 errors.Add("secondPassword", errorsDictionary[isSecondPasswordEmpty]);
-            if (validationModel.IsPasswordsMatch && !errors.ContainsKey("secondPassword"))
-                errors.Add("secondPassword", errorsDictionary[isPasswordsMatch]);
+            if (validationModel.IsSecondPasswordMatch && !errors.ContainsKey("secondPassword"))
+                errors.Add("secondPassword", errorsDictionary[isSecondPasswordsMatch]);
 
             // First Name
             if (validationModel.IsFirstNameEmpty && !errors.ContainsKey("firstName"))

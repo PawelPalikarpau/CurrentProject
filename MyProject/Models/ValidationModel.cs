@@ -20,7 +20,8 @@ namespace MyProjectLibrary.Models
 
         // Second Password
         public Boolean IsSecondPasswordEmpty { get; set; } = false;
-        public Boolean IsPasswordsMatch { get; set; } = false;
+        public Boolean IsSecondPasswordMatch { get; set; } = false;
+        public Boolean IsDatabasePasswordMatch { get; set; } = false;
 
         // First Name
         public Boolean IsFirstNameEmpty { get; set; } = false;

@@ -19,7 +19,7 @@ namespace MyProjectUI
         RegistrationFormValidator validator = new RegistrationFormValidator();
         public string EmailText { get; set; }
         public string PasswordText { get; set; }
-        private bool isAlreadeyLaunched = false;
+        private bool isAlreadyLaunched = false;
 
         public RegistrationForm()
         {
@@ -30,7 +30,7 @@ namespace MyProjectUI
         private void registrationButton_Click(object sender, EventArgs e)
         {
             string email = emailTextControl.InputText;
-            string firstPassword = paswordTextControl.InputText;
+            string firstPassword = passwordTextControl.InputText;
             string secondPassword = confirmPasswrodTextControl.InputText;
 
             Dictionary<string, string> errors = new Dictionary<string, string>();
@@ -64,30 +64,30 @@ namespace MyProjectUI
         private void RefreshTextControls(Dictionary<string, string> errors)
         {
             emailTextControl.ErrorLabelText = "";
-            paswordTextControl.ErrorLabelText = "";
+            passwordTextControl.ErrorLabelText = "";
             confirmPasswrodTextControl.ErrorLabelText = "";
 
-            if (isAlreadeyLaunched)
+            if (isAlreadyLaunched)
             {
                 if (errors.ContainsKey("email")) emailTextControl.ErrorLabelText = errors["email"];
-                if (errors.ContainsKey("firstPassword")) paswordTextControl.ErrorLabelText = errors["firstPassword"];
+                if (errors.ContainsKey("firstPassword")) passwordTextControl.ErrorLabelText = errors["firstPassword"];
                 if (errors.ContainsKey("secondPassword")) confirmPasswrodTextControl.ErrorLabelText = errors["secondPassword"];
 
                 if (emailTextControl.ErrorLabelText != "") emailTextControl.ErrorType = ErrorMessageType.Error;
                 else emailTextControl.ErrorType = ErrorMessageType.OK;
 
-                if (paswordTextControl.ErrorLabelText != "") paswordTextControl.ErrorType = ErrorMessageType.Error;
-                else paswordTextControl.ErrorType = ErrorMessageType.OK;
+                if (passwordTextControl.ErrorLabelText != "") passwordTextControl.ErrorType = ErrorMessageType.Error;
+                else passwordTextControl.ErrorType = ErrorMessageType.OK;
 
                 if (confirmPasswrodTextControl.ErrorLabelText != "") confirmPasswrodTextControl.ErrorType = ErrorMessageType.Error;
                 else confirmPasswrodTextControl.ErrorType = ErrorMessageType.OK;
 
             }
 
-            isAlreadeyLaunched = true;
+            isAlreadyLaunched = true;
 
             emailTextControl.Refresh();
-            paswordTextControl.Refresh();
+            passwordTextControl.Refresh();
             confirmPasswrodTextControl.Refresh();
         }
     }

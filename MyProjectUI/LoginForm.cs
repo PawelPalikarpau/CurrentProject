@@ -1,4 +1,5 @@
 ﻿using MyProjectLibrary;
+using MyProjectLibrary.Enums;
 using MyProjectLibrary.Models;
 using MyProjectLibrary.Validators;
 using System;
@@ -19,19 +20,21 @@ namespace MyProjectUI
         public AccountModel AccountModel { get; private set; }
 
         private LoginFormValidator validator = new LoginFormValidator();
+        private bool isAlreadyLaunched = false;
 
         public LoginForm()
         {
             InitializeComponent();
-            emailTextBox.Text = "pawel@gmail.com";
-            passwordTextBox.Text = "qwer";
+            RefreshTextControls(null);
+            emailTextControl.InputText = "marta@gmail.com";
+            passwordTextControl.InputText = "qwer";
         }
 
         void registrationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             RegistrationForm registrationForm = (RegistrationForm)sender;
-            emailTextBox.Text = registrationForm.EmailText;
-            passwordTextBox.Text = registrationForm.PasswordText;
+            emailTextControl.InputText = registrationForm.EmailText;
+            passwordTextControl.InputText = registrationForm.PasswordText;
             
             this.Visible = true;
             this.Enabled = true;
@@ -40,19 +43,22 @@ namespace MyProjectUI
         private void loginButton_Click(object sender, EventArgs e)
         {
             loginButton.ForeColor = Color.Yellow;
-            this.Close();
-            //string email = emailTextBox.Text;
-            //string password = passwordTextBox.Text;
+            string email = emailTextControl.InputText;
+            string password = passwordTextControl.InputText;
 
-            //UserModel userModel = null;
-            //    //validator.ValidateForm(email, password);
+            Dictionary<string, string> errors = new Dictionary<string, string>();
+            errors = validator.ValidateForm(email, password);
 
-            //if (userModel != null)
-            //{
-            //    this.UserModel = userModel;
-            //    this.AccountModel = GlobalConfig.Connection.AccountsOperations().GetAccountByUserId(this.UserModel.Id);
-            //    this.Close();
-            //}
+            if (errors.Count == 0)
+            {
+                this.UserModel = GlobalConfig.Connection.UsersOperations().GetUserByEmail(email);
+                this.AccountModel = GlobalConfig.Connection.AccountsOperations().GetAccountByUserId(this.UserModel.Id);
+                this.Close();
+            }
+            else
+            {
+                RefreshTextControls(errors);
+            }
         }
 
         private void registrateButton_Click(object sender, EventArgs e)
@@ -67,6 +73,30 @@ namespace MyProjectUI
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void RefreshTextControls(Dictionary<string, string> errors)
+        {
+            emailTextControl.ErrorLabelText = "";
+            passwordTextControl.ErrorLabelText = "";
+
+            if (isAlreadyLaunched)
+            {
+                if (errors.ContainsKey("email")) emailTextControl.ErrorLabelText = errors["email"];
+                if (errors.ContainsKey("firstPassword")) passwordTextControl.ErrorLabelText = errors["firstPassword"];
+
+                if (emailTextControl.ErrorLabelText != "") emailTextControl.ErrorType = ErrorMessageType.Error;
+                else emailTextControl.ErrorType = ErrorMessageType.OK;
+
+                if (passwordTextControl.ErrorLabelText != "") passwordTextControl.ErrorType = ErrorMessageType.Error;
+                else passwordTextControl.ErrorType = ErrorMessageType.OK;
+
+            }
+
+            isAlreadyLaunched = true;
+
+            emailTextControl.Refresh();
+            passwordTextControl.Refresh();
         }
     }
 }
