@@ -51,6 +51,12 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomForms\InputTextControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomForms\InputTextControl.Designer.cs">
+      <DependentUpon>InputTextControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomForms\RegularButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomForms\InputTextControl.resx">
+      <DependentUpon>InputTextControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

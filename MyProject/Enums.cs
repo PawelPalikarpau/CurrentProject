@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyProjectLibrary
+namespace MyProjectLibrary.Enums
 {
     public enum DatabaseType
     {
@@ -16,5 +16,12 @@ namespace MyProjectLibrary
     {
         Yes,
         No
+    }
+
+    public enum ErrorMessageType
+    {
+        OK,
+        Warning,
+        Error
     }
 }

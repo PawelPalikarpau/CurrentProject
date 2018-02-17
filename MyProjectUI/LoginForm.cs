@@ -23,7 +23,7 @@ namespace MyProjectUI
         public LoginForm()
         {
             InitializeComponent();
-            emailTextBox.Text = "marta@gmail.com";
+            emailTextBox.Text = "pawel@gmail.com";
             passwordTextBox.Text = "qwer";
         }
 
