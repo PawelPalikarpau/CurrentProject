@@ -24,6 +24,7 @@ namespace MyProjectUI
         public RegistrationForm()
         {
             InitializeComponent();
+            xButton.Location = new Point(Location.X + Size.Width - xButton.Size.Width, Location.Y);
             RefreshTextControls(null);
         }
 
@@ -89,6 +90,12 @@ namespace MyProjectUI
             emailTextControl.Refresh();
             passwordTextControl.Refresh();
             confirmPasswrodTextControl.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            this.Close();
         }
     }
 }

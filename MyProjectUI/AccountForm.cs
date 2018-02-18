@@ -27,6 +27,7 @@ namespace MyProjectUI
         public AccountForm(AccountModel accountModel)
         {
             InitializeComponent();
+            xButton.Location = new Point(Location.X + Size.Width - xButton.Size.Width, Location.Y);
             this.AccountModel = accountModel;
             ConfigureForm();
             RefreshTextControls();
