@@ -25,6 +25,7 @@ namespace MyProjectUI
         public LoginForm()
         {
             InitializeComponent();
+            xButton.Location = new Point(Location.X + Size.Width - xButton.Size.Width, Location.Y);
             RefreshTextControls(null);
             emailTextControl.InputText = "marta@gmail.com";
             passwordTextControl.InputText = "qwer";
@@ -97,6 +98,12 @@ namespace MyProjectUI
 
             emailTextControl.Refresh();
             passwordTextControl.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            this.Close();
         }
     }
 }

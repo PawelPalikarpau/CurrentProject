@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.exitButton = new MyProjectUI.CustomForms.RegularButton();
             this.registrateButton = new MyProjectUI.CustomForms.RegularButton();
             this.loginButton = new MyProjectUI.CustomForms.RegularButton();
             this.emailTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.passwordTextControl = new MyProjectUI.CustomForms.InputTextControl();
+            this.xButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitButton
@@ -43,7 +45,7 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.exitButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.exitButton.Location = new System.Drawing.Point(289, 128);
+            this.exitButton.Location = new System.Drawing.Point(289, 156);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(132, 56);
             this.exitButton.TabIndex = 4;
@@ -59,7 +61,7 @@
             this.registrateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registrateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.registrateButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.registrateButton.Location = new System.Drawing.Point(151, 128);
+            this.registrateButton.Location = new System.Drawing.Point(151, 156);
             this.registrateButton.Name = "registrateButton";
             this.registrateButton.Size = new System.Drawing.Size(132, 56);
             this.registrateButton.TabIndex = 3;
@@ -75,7 +77,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.loginButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.loginButton.Location = new System.Drawing.Point(13, 128);
+            this.loginButton.Location = new System.Drawing.Point(13, 156);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(132, 56);
             this.loginButton.TabIndex = 2;
@@ -92,7 +94,7 @@
             this.emailTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.emailTextControl.InputText = "";
-            this.emailTextControl.Location = new System.Drawing.Point(13, 14);
+            this.emailTextControl.Location = new System.Drawing.Point(13, 42);
             this.emailTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.emailTextControl.Name = "emailTextControl";
             this.emailTextControl.NameLabelText = "E-mail";
@@ -110,7 +112,7 @@
             this.passwordTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.passwordTextControl.InputText = "";
-            this.passwordTextControl.Location = new System.Drawing.Point(13, 72);
+            this.passwordTextControl.Location = new System.Drawing.Point(13, 100);
             this.passwordTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.passwordTextControl.Name = "passwordTextControl";
             this.passwordTextControl.NameLabelText = "Password";
@@ -119,11 +121,28 @@
             this.passwordTextControl.TextBoxLocation = new System.Drawing.Point(90, 6);
             this.passwordTextControl.TextBoxSize = new System.Drawing.Size(315, 19);
             // 
+            // xButton
+            // 
+            this.xButton.BackColor = System.Drawing.Color.Tomato;
+            this.xButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("xButton.BackgroundImage")));
+            this.xButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.xButton.FlatAppearance.BorderSize = 0;
+            this.xButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.xButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.xButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.xButton.Location = new System.Drawing.Point(408, 0);
+            this.xButton.Name = "xButton";
+            this.xButton.Size = new System.Drawing.Size(28, 27);
+            this.xButton.TabIndex = 5;
+            this.xButton.UseVisualStyleBackColor = false;
+            this.xButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(436, 200);
+            this.ClientSize = new System.Drawing.Size(436, 227);
+            this.Controls.Add(this.xButton);
             this.Controls.Add(this.passwordTextControl);
             this.Controls.Add(this.emailTextControl);
             this.Controls.Add(this.exitButton);
@@ -146,6 +165,7 @@
         private CustomForms.RegularButton exitButton;
         private CustomForms.InputTextControl emailTextControl;
         private CustomForms.InputTextControl passwordTextControl;
+        private System.Windows.Forms.Button xButton;
     }
 }
 

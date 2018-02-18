@@ -20,6 +20,8 @@ namespace MyProjectUI
         public MainForm()
         {
             InitializeComponent();
+            this.Size = Screen.PrimaryScreen.Bounds.Size;
+            xButton.Location = new Point(Location.X + Size.Width - xButton.Size.Width, Location.Y);
             this.Show();
             if (UserModel == null) ShowLoginForm();
         }

@@ -28,12 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
+            this.xButton = new System.Windows.Forms.Button();
             this.confirmPasswrodTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.passwordTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.emailTextControl = new MyProjectUI.CustomForms.InputTextControl();
             this.backButton = new MyProjectUI.CustomForms.RegularButton();
             this.registrationButton = new MyProjectUI.CustomForms.RegularButton();
             this.SuspendLayout();
+            // 
+            // xButton
+            // 
+            this.xButton.BackColor = System.Drawing.Color.Tomato;
+            this.xButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("xButton.BackgroundImage")));
+            this.xButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.xButton.FlatAppearance.BorderSize = 0;
+            this.xButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.xButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.xButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.xButton.Location = new System.Drawing.Point(398, 0);
+            this.xButton.Name = "xButton";
+            this.xButton.Size = new System.Drawing.Size(28, 27);
+            this.xButton.TabIndex = 6;
+            this.xButton.UseVisualStyleBackColor = false;
+            this.xButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // confirmPasswrodTextControl
             // 
@@ -44,7 +62,7 @@
             this.confirmPasswrodTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.confirmPasswrodTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.confirmPasswrodTextControl.InputText = "";
-            this.confirmPasswrodTextControl.Location = new System.Drawing.Point(13, 135);
+            this.confirmPasswrodTextControl.Location = new System.Drawing.Point(13, 159);
             this.confirmPasswrodTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.confirmPasswrodTextControl.Name = "confirmPasswrodTextControl";
             this.confirmPasswrodTextControl.NameLabelText = "Confirm Password";
@@ -62,7 +80,7 @@
             this.passwordTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.passwordTextControl.InputText = "";
-            this.passwordTextControl.Location = new System.Drawing.Point(13, 74);
+            this.passwordTextControl.Location = new System.Drawing.Point(13, 98);
             this.passwordTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.passwordTextControl.Name = "passwordTextControl";
             this.passwordTextControl.NameLabelText = "Enter Password";
@@ -80,7 +98,7 @@
             this.emailTextControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailTextControl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.emailTextControl.InputText = "";
-            this.emailTextControl.Location = new System.Drawing.Point(13, 13);
+            this.emailTextControl.Location = new System.Drawing.Point(13, 37);
             this.emailTextControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.emailTextControl.Name = "emailTextControl";
             this.emailTextControl.NameLabelText = "E-mail";
@@ -97,7 +115,7 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.backButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.backButton.Location = new System.Drawing.Point(224, 194);
+            this.backButton.Location = new System.Drawing.Point(224, 218);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(186, 55);
             this.backButton.TabIndex = 4;
@@ -113,7 +131,7 @@
             this.registrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registrationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.registrationButton.ForeColorOnMouseEnter = System.Drawing.Color.Yellow;
-            this.registrationButton.Location = new System.Drawing.Point(13, 194);
+            this.registrationButton.Location = new System.Drawing.Point(13, 218);
             this.registrationButton.Name = "registrationButton";
             this.registrationButton.Size = new System.Drawing.Size(186, 55);
             this.registrationButton.TabIndex = 3;
@@ -125,7 +143,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(426, 264);
+            this.ClientSize = new System.Drawing.Size(426, 288);
+            this.Controls.Add(this.xButton);
             this.Controls.Add(this.confirmPasswrodTextControl);
             this.Controls.Add(this.passwordTextControl);
             this.Controls.Add(this.emailTextControl);
@@ -148,5 +167,6 @@
         private CustomForms.InputTextControl emailTextControl;
         private CustomForms.InputTextControl passwordTextControl;
         private CustomForms.InputTextControl confirmPasswrodTextControl;
+        private System.Windows.Forms.Button xButton;
     }
 }
