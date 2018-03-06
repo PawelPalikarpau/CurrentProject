@@ -51,6 +51,9 @@
     <Compile Include="DataAccess\TabelsOperations\UsersOperations\IUsersOperations.cs" />
     <Compile Include="DataAccess\TabelsOperations\UsersOperations\UsersOperations.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="FormsController\IAccountForm.cs" />
+    <Compile Include="FormsController\IAccountPhotoForm.cs" />
+    <Compile Include="FormsController\ILoginForm.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Validators\FormValidators\AccountFormValidator.cs" />
     <Compile Include="Validators\ErrorsValidator.cs" />

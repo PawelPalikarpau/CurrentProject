@@ -13,7 +13,6 @@ namespace MyProjectLibrary.Validators
         private ErrorsValidator errorsValidator = new ErrorsValidator();
 
         private ValidationModel validationModel;
-        Dictionary<string, string> errors;
 
         public Dictionary<string, string> ValidateForm (string firstName, string lastName, string email, string phoneNumber)
         {
